@@ -1,4 +1,8 @@
 package br.com.fiap.postech.soat.techchallenger1.application;
 
-public class ClienteService {
+import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
+
+public interface ClienteService {
+
+    public boolean criarUsuario(Cliente cliente);
 }
