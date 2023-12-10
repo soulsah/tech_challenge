@@ -2,11 +2,11 @@ FROM maven:3.9.1 AS MAVEN_BUILD
 COPY ./ ./
 RUN mvn clean  package
 
-FROM openjdk:17-alpine AS builder
+FROM openjdk:17-oracle AS builder
 COPY --from=MAVEN_BUILD target/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
-FROM openjdk:17-alpine
+FROM openjdk:17-oracle
 EXPOSE 8080
 COPY --from=builder dependencies/ ./
 COPY --from=builder snapshot-dependencies/ ./
