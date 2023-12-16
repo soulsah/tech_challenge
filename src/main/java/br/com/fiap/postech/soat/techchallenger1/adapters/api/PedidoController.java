@@ -1,14 +1,17 @@
 package br.com.fiap.postech.soat.techchallenger1.adapters.api;
+import br.com.fiap.postech.soat.techchallenger1.application.FakeCheckoutService;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.FakeCheckout;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.PedidoDto;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 public class PedidoController {
+
+    @Autowired
+    private FakeCheckoutService checkoutService;
 
     @GetMapping("/pedidos/{id}")
     public ResponseEntity<PedidoDto> getPedidoById(@RequestBody PedidoDto pedido){
@@ -22,5 +25,10 @@ public class PedidoController {
     @PostMapping("/pedidos/{id}")
     public ResponseEntity<PedidoDto> criaPedidoById(@RequestBody PedidoDto pedido){
         return ResponseEntity.status(HttpStatus.CREATED).body(pedido);
+    }
+
+    @PostMapping("/pedidos/{id}/checkout")
+    public ResponseEntity<FakeCheckout> checkoout(@RequestBody PedidoDto pedido){
+        return null;
     }
 }
