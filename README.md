@@ -14,7 +14,7 @@
 
 - **Descrição:** Contém classes relacionadas ao tratamento de exceções, como `CustomExceptionHandler`.
 
-### persistence
+### repository
 
 - **Descrição:** Contém componentes relacionados ao armazenamento de dados, como `ClienteRepositoryDB`.
 
