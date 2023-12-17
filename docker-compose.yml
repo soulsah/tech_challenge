@@ -4,7 +4,6 @@ services:
     image: postgres
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
-      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
     environment:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
@@ -18,7 +17,7 @@ services:
       - db
     build: .
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/tech-challenger
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/tech_challenge
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update

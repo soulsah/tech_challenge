@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.api;
+package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
