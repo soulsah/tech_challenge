@@ -1,27 +1,26 @@
 -- Inserir dados de exemplo
-INSERT INTO Cliente (ID, CPF, Nome, Email)
-VALUES (1, '12345678900', 'Guilherme', 'guilherme@email.com');
+INSERT INTO tb_cliente (CPF, Nome, Email)
+VALUES ('12345678900', 'Guilherme', 'guilherme@email.com');
 
 -- Inserir dados de exemplo
-INSERT INTO Pedido (ID, Cliente_ID, Status)
-VALUES (1, 1, 1);
+INSERT INTO tb_pedido (Cliente_ID, Status)
+VALUES (1, 1);
 
-INSERT INTO Produto (ID, Tipo, Descricao, Preco)
+INSERT INTO tb_produto (Tipo, Descricao, Preco)
 VALUES
-    (1, 1, 'X-Bacon', 20.00),
-    (2, 2, 'Batata Frita', 5.00),
-    (3, 3, 'Coca-Cola', 7.00);
+    (1, 'X-Bacon', 20.00),
+    (2, 'Batata Frita', 5.00),
+    (3, 'Coca-Cola', 7.00);
 
-
-INSERT INTO TipoProduto (ID, Descricao)
+INSERT INTO tb_tipo_produto (Descricao)
 VALUES
-    (1, 'Lanche'),
-    (2, 'Acompanhamento'),
-    (3, 'Bebida');
+    ('Lanche'),
+    ('Acompanhamento'),
+    ('Bebida');
 
-INSERT INTO StatusPedido (ID, Descricao)
+INSERT INTO tb_status_pedido (Descricao)
 VALUES
-    (1, 'Recebido'),
-    (2, 'Em Preparação'),
-    (3, 'Pronto'),
-    (4, 'Finalizado');
+    ('Recebido'),
+    ('Em Preparação'),
+    ('Pronto'),
+    ('Finalizado');
