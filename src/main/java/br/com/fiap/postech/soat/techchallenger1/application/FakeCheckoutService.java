@@ -1,9 +1,12 @@
 package br.com.fiap.postech.soat.techchallenger1.application;
 
+import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.FakeCheckout;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 
-public class FakeCheckoutService {
+import java.util.List;
 
-    public void fakeCheckout(Pedido pedido){
-    }
+public interface FakeCheckoutService {
+    public boolean checkout(Cliente cliente, Pedido pedido, List<Produto> produtos);
 }
