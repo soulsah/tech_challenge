@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FakeCheckoutImpl implements FakeCheckoutService {
     @Override
-    public boolean checkout(Cliente cliente, Pedido pedido, List<Produto> produtos) {
+    public boolean checkout(Pedido pedido) {
         return false;
     }
 }

@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
+
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ClienteDto;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,6 +16,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String cpf;
     private String nome;
     private String email;

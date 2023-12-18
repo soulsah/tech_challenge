@@ -8,5 +8,5 @@ import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import java.util.List;
 
 public interface FakeCheckoutService {
-    public boolean checkout(Cliente cliente, Pedido pedido, List<Produto> produtos);
+    public boolean checkout(Pedido pedido);
 }

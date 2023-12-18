@@ -10,7 +10,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FakeCheckout {
-    private Cliente cliente;
     private Pedido pedido;
-    private List<Produto> produtos;
 }
