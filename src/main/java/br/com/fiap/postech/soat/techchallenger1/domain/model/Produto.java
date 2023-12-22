@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
+import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -27,4 +28,11 @@ public class Produto {
 
     @Column(name = "preco", nullable = false)
     private BigDecimal preco;
+
+    public Produto(ProdutoDto produtoDto){
+        this.id = produtoDto.getId();
+        this.tipo = produtoDto.getTipo();
+        this.descricao = produtoDto.getDescricao();
+        this.preco = produtoDto.getPreco();
+    }
 }

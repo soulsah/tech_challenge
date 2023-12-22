@@ -6,5 +6,7 @@ import org.springframework.data.repository.ListCrudRepository;
 import java.util.List;
 
 public interface ProdutoService{
-    public List<Produto> getProdutos();
+    public List<Produto> findAll();
+
+    public Produto findProdutoById(Long produto_id);
 }
