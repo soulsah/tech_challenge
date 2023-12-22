@@ -10,18 +10,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "itens_pedido")
+@Table(name = "tb_itens_pedido")
 public class ItensPedido {
     @Id
-    @ManyToOne
-    @JoinColumn(name = "pedido_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "produto_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "produto", nullable = false)
     private Produto produto;
 
+    @Column(name = "quantidade", nullable = false)
     private int Quantidade;
 
 }

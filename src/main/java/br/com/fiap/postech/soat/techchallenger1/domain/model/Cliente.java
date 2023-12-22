@@ -15,10 +15,14 @@ import lombok.NoArgsConstructor;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "cpf")
     private String cpf;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "email")
     private String email;
 
     public Cliente(ClienteDto clienteDto) {
