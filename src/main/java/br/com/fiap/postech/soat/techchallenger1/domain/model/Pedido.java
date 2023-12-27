@@ -18,7 +18,7 @@ public class Pedido {
     private Long id;
 
     @JoinColumn(name = "Cliente_ID")
-    private Long cliente_id;
+    private Long clienteId;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "status")
@@ -26,7 +26,7 @@ public class Pedido {
 
     public Pedido(PedidoDto pedidoDto){
         this.id = pedidoDto.getId();
-        this.cliente_id = pedidoDto.getCliente_id();
+        this.clienteId = pedidoDto.getClienteId();
         this.status = pedidoDto.getStatus();
     }
 }

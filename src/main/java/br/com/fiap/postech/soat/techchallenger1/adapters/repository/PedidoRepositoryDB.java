@@ -14,13 +14,7 @@ import java.util.List;
 @Transactional
 public interface PedidoRepositoryDB extends JpaRepository<Pedido,Long> {
 
-    @Query(
-            value = "SELECT * FROM tb_pedido WHERE Cliente_ID = :cliente_id",
-            nativeQuery = true)
-    public List<Pedido> findPedidoByCliente(@Param("cliente_id") Long cliente_id);
-
-    @Query(
-            value = "SELECT * FROM tb_pedido",
-            nativeQuery = true)
     public List<Pedido> findAll();
+
+    public List<Pedido> findPedidosByClienteId(Long id);
 }

@@ -13,5 +13,5 @@ public class PedidoRepository {
     @Autowired
     PedidoRepositoryDB pedidoRepository;
     public List<Pedido> findAll(){ return pedidoRepository.findAll(); }
-    public List<Pedido> findPedidoByCliente(Long cliente_id){ return pedidoRepository.findPedidoByCliente(cliente_id);}
+    public List<Pedido> findPedidosByClienteId(Long cliente_id){ return pedidoRepository.findPedidosByClienteId(cliente_id);}
 }

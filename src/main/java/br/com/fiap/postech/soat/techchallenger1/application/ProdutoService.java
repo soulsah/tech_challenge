@@ -12,4 +12,6 @@ public interface ProdutoService{
     public Produto findProdutoById(Long produto_id);
 
     public Produto cadastrarProduto(ProdutoDto produto);
+
+    public Produto deleteById(Long produto_id);
 }

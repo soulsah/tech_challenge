@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PedidoDto {
     private Long id;
-    private Long cliente_id;
+    private Long clienteId;
     private StatusPedido status;
 
     public PedidoDto(Pedido pedido){
         this.id = pedido.getId();
-        this.cliente_id = pedido.getCliente_id();
+        this.clienteId = pedido.getClienteId();
         this.status = pedido.getStatus();
     }
 }

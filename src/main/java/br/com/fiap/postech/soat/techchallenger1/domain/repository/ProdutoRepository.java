@@ -16,4 +16,9 @@ public class ProdutoRepository {
     public Produto findProdutoById(Long produto_id){ return produtoRepositoryDB.findProdutoById(produto_id); }
 
     public Produto cadastrarProduto(Produto produto){ return produtoRepositoryDB.save(produto);}
+
+    public Produto deleteById(Long produto_id){
+        produtoRepositoryDB.deleteById(produto_id);
+        return null;
+    }
 }

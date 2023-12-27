@@ -28,4 +28,9 @@ public class ProdutoServiceImpl implements ProdutoService{
     public Produto cadastrarProduto(ProdutoDto produto){
         return produtoRepository.cadastrarProduto(new Produto(produto));
     }
+
+    @Override
+    public Produto deleteById(Long produto_id){
+        return produtoRepository.deleteById(produto_id);
+    }
 }

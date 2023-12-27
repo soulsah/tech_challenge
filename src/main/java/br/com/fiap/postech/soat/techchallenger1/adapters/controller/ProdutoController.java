@@ -55,4 +55,16 @@ public class ProdutoController {
         Produto produtoAtualizado = produtoService.cadastrarProduto(new ProdutoDto(produtoExistente));
         return ResponseEntity.ok(produtoAtualizado);
     }
+
+    @DeleteMapping("/produto/{id}")
+    public ResponseEntity excluirProduto(@PathVariable Long id){
+        Produto produtoExistente = produtoService.findProdutoById(id);
+
+        if(produtoExistente == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        produtoService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Produto "+ produtoExistente.getDescricao() + " excluído com sucesso!");
+    }
 }

@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface PedidoService {
     public List<Pedido> findAll();
-    public List<Pedido> findPedidoByCliente(Long cliente_id);
+    public List<Pedido> findPedidosByClienteId(Long cliente_id);
 }
