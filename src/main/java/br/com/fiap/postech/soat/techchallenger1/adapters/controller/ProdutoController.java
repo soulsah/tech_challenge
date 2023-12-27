@@ -34,6 +34,13 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoDto);
     }
 
+    @GetMapping("/tipo_produto/{id}")
+    public ResponseEntity<List<ProdutoDto>> findProdutosByTipo(@PathVariable("id") Long tipo){
+        List<Produto> produtos = produtoService.findProdutosByTipo(tipo);
+        List<ProdutoDto> produtoDtos = produtos.stream().map(ProdutoDto::new).toList();
+        return ResponseEntity.ok().body(produtoDtos);
+    }
+
     @PostMapping("/produto")
     public ResponseEntity cadastroProduto(@RequestBody ProdutoDto produto){
         produtoService.cadastrarProduto(produto);
