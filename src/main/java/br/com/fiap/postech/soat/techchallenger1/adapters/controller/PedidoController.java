@@ -20,8 +20,8 @@ public class PedidoController {
     @Autowired
     PedidoService pedidoService;
 
-    @GetMapping("/pedidos/{Cliente_ID}")
-    public ResponseEntity<List<PedidoDto>> findPedidoByCliente(@PathVariable("Cliente_ID") Long cliente_id) {
+    @GetMapping("/pedidos/{cliente_id}")
+    public ResponseEntity<List<PedidoDto>> findPedidoByCliente(@PathVariable("cliente_id") Long cliente_id) {
         List<Pedido> pedidos = pedidoService.findPedidoByCliente(cliente_id);
         List<PedidoDto> pedidoDtos = pedidos.stream().map(PedidoDto::new).toList();
         return ResponseEntity.ok().body(pedidoDtos);

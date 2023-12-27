@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,8 +23,8 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoDtos);
     }
 
-    @GetMapping("/produto/{ID}")
-    public ResponseEntity<ProdutoDto> findProdutoById(@PathVariable("ID") Long produto_id){
+    @GetMapping("/produto/{id}")
+    public ResponseEntity<ProdutoDto> findProdutoById(@PathVariable("id") Long produto_id){
         /*
          * TODO:
          *  Tratar exceções 404
@@ -41,5 +38,21 @@ public class ProdutoController {
     public ResponseEntity cadastroProduto(@RequestBody ProdutoDto produto){
         produtoService.cadastrarProduto(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
+    }
+
+    @PutMapping("/produto/{id}")
+    public ResponseEntity atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produto){
+        Produto produtoExistente = produtoService.findProdutoById(id);
+
+        if(produtoExistente == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        produtoExistente.setTipo(produto.getTipo());
+        produtoExistente.setDescricao(produto.getDescricao());
+        produtoExistente.setPreco(produto.getPreco());
+
+        Produto produtoAtualizado = produtoService.cadastrarProduto(new ProdutoDto(produtoExistente));
+        return ResponseEntity.ok(produtoAtualizado);
     }
 }
