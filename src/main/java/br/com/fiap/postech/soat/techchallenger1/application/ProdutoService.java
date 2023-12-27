@@ -11,6 +11,8 @@ public interface ProdutoService{
 
     public Produto findProdutoById(Long produto_id);
 
+    public List<Produto> findProdutosByTipo(Long tipo);
+
     public Produto cadastrarProduto(ProdutoDto produto);
 
     public Produto deleteById(Long produto_id);

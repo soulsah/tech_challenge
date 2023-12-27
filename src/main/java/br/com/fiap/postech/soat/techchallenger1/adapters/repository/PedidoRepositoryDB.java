@@ -14,7 +14,7 @@ import java.util.List;
 @Transactional
 public interface PedidoRepositoryDB extends JpaRepository<Pedido,Long> {
 
-    public List<Pedido> findAll();
+    List<Pedido> findAll();
 
-    public List<Pedido> findPedidosByClienteId(Long id);
+    List<Pedido> findPedidosByClienteId(Long id);
 }
