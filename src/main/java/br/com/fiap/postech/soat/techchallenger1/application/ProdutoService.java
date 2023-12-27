@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.application;
 
+import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import org.springframework.data.repository.ListCrudRepository;
 
@@ -9,4 +10,6 @@ public interface ProdutoService{
     public List<Produto> findAll();
 
     public Produto findProdutoById(Long produto_id);
+
+    public Produto cadastrarProduto(ProdutoDto produto);
 }

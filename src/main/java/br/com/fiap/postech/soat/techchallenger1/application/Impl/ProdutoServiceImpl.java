@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.application.Impl;
 
+import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.ProdutoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import br.com.fiap.postech.soat.techchallenger1.domain.repository.ProdutoRepository;
@@ -21,5 +22,10 @@ public class ProdutoServiceImpl implements ProdutoService{
     @Override
     public Produto findProdutoById(Long produto_id) {
         return produtoRepository.findProdutoById(produto_id);
+    }
+
+    @Override
+    public Produto cadastrarProduto(ProdutoDto produto){
+        return produtoRepository.cadastrarProduto(new Produto(produto));
     }
 }

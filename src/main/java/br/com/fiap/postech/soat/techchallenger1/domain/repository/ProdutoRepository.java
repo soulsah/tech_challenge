@@ -14,4 +14,6 @@ public class ProdutoRepository {
 
     public List<Produto> findAll(){ return produtoRepositoryDB.findAll(); }
     public Produto findProdutoById(Long produto_id){ return produtoRepositoryDB.findProdutoById(produto_id); }
+
+    public Produto cadastrarProduto(Produto produto){ return produtoRepositoryDB.save(produto);}
 }

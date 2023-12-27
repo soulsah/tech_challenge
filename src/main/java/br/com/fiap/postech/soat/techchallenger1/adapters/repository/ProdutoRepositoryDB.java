@@ -22,4 +22,6 @@ public interface ProdutoRepositoryDB extends JpaRepository<Produto,Long> {
             value = "SELECT * FROM tb_produto",
             nativeQuery = true)
     public List<Produto> findAll();
+
+    public Produto save(Produto produto);
 }

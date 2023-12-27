@@ -4,10 +4,13 @@ import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.ProdutoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -32,5 +35,11 @@ public class ProdutoController {
         Produto produto = produtoService.findProdutoById(produto_id);
         ProdutoDto produtoDto = new ProdutoDto(produto);
         return ResponseEntity.ok().body(produtoDto);
+    }
+
+    @PostMapping("/produto")
+    public ResponseEntity cadastroProduto(@RequestBody ProdutoDto produto){
+        produtoService.cadastrarProduto(produto);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
     }
 }
