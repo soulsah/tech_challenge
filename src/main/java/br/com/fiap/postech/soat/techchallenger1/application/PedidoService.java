@@ -11,5 +11,6 @@ public interface PedidoService {
     List<Pedido> findAll();
     List<Pedido> findPedidosByClienteId(Long cliente_id);
 
+    Pedido findPedidoById(Long id);
     void novoPedido(PedidoDto pedido);
 }

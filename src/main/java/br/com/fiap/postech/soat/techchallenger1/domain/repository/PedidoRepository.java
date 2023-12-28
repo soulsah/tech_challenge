@@ -16,6 +16,8 @@ public class PedidoRepository {
     public List<Pedido> findAll(){ return pedidoRepository.findAll(); }
     public List<Pedido> findPedidosByClienteId(Long cliente_id){ return pedidoRepository.findPedidosByClienteId(cliente_id);}
 
+    public Pedido findPedidoById(Long id) { return pedidoRepository.findPedidoById(id); }
+
     public Pedido novoPedido(Pedido pedido){
         StatusPedido status = StatusPedido.RECEBIDO;
         pedido.setStatus(status);
