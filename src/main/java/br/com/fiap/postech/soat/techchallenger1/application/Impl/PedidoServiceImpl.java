@@ -1,11 +1,13 @@
 package br.com.fiap.postech.soat.techchallenger1.application.Impl;
 
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ClienteDto;
+import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ItemPedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.PedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.PedidoService;
 import br.com.fiap.postech.soat.techchallenger1.application.ProdutoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.ItemPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,8 @@ public class PedidoServiceImpl implements PedidoService{
     }
 
     @Override
-    public void novoPedido(PedidoDto pedido){
-        pedidoRepository.novoPedido(new Pedido(pedido));
+    public void novoPedido(PedidoDto pedido, List<ItemPedidoDto> itens){
+        List<ItemPedido> listaItem = itens.stream().map(ItemPedido::new).toList();
+        pedidoRepository.novoPedido(new Pedido(pedido), listaItem);
     }
 }
