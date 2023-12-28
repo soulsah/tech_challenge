@@ -15,19 +15,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     @Autowired
     PedidoService pedidoService;
 
-    @GetMapping("/pedidos/{cliente_id}")
+    @GetMapping("/{cliente_id}")
     public ResponseEntity<List<PedidoDto>> findPedidosByClienteId(@PathVariable("cliente_id") Long cliente_id) {
         List<Pedido> pedidos = pedidoService.findPedidosByClienteId(cliente_id);
         List<PedidoDto> pedidoDtos = pedidos.stream().map(PedidoDto::new).toList();
         return ResponseEntity.ok().body(pedidoDtos);
     }
 
-    @GetMapping("/pedidos")
+    @GetMapping
     public ResponseEntity<List<PedidoDto>> findAll(){
         List<Pedido> list = pedidoService.findAll();
         List<PedidoDto> listDto = list.stream().map(PedidoDto::new).toList();

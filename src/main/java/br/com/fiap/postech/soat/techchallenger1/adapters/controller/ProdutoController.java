@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/produtos")
 public class ProdutoController {
     @Autowired
     ProdutoService produtoService;
 
-    @GetMapping("/produtos")
+    @GetMapping
     public ResponseEntity<List<ProdutoDto>> findAll(){
         List<Produto> produtos = produtoService.findAll();
         List<ProdutoDto> produtoDtos = produtos.stream().map(ProdutoDto::new).toList();
         return ResponseEntity.ok().body(produtoDtos);
     }
 
-    @GetMapping("/produto/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProdutoDto> findProdutoById(@PathVariable("id") Long produto_id){
         /*
          * TODO:
@@ -34,20 +35,20 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoDto);
     }
 
-    @GetMapping("/tipo_produto/{id}")
+    @GetMapping("/tipo/{id}")
     public ResponseEntity<List<ProdutoDto>> findProdutosByTipo(@PathVariable("id") Long tipo){
         List<Produto> produtos = produtoService.findProdutosByTipo(tipo);
         List<ProdutoDto> produtoDtos = produtos.stream().map(ProdutoDto::new).toList();
         return ResponseEntity.ok().body(produtoDtos);
     }
 
-    @PostMapping("/produto")
+    @PostMapping
     public ResponseEntity cadastroProduto(@RequestBody ProdutoDto produto){
         produtoService.cadastrarProduto(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
     }
 
-    @PutMapping("/produto/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produto){
         Produto produtoExistente = produtoService.findProdutoById(id);
 
@@ -63,7 +64,7 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoAtualizado);
     }
 
-    @DeleteMapping("/produto/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity excluirProduto(@PathVariable Long id){
         Produto produtoExistente = produtoService.findProdutoById(id);
 
