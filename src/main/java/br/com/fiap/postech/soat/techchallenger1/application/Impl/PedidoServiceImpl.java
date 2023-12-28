@@ -30,6 +30,11 @@ public class PedidoServiceImpl implements PedidoService{
     }
 
     @Override
+    public Pedido findPedidoById(Long id){
+        return pedidoRepository.findPedidoById(id);
+    }
+
+    @Override
     public void novoPedido(PedidoDto pedido){
         pedidoRepository.novoPedido(new Pedido(pedido));
     }

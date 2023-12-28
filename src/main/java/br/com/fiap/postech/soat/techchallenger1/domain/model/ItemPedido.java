@@ -1,6 +1,7 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 
+import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ItemPedidoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,18 +12,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_itens_pedido")
-public class ItensPedido {
+@IdClass(ItemPedidoId.class)
+public class ItemPedido {
     @Id
-    @ManyToOne(optional = false)
     @JoinColumn(name = "pedido_id", nullable = false)
-    private Pedido pedido;
+    private Long pedidoId;
 
     @Id
-    @ManyToOne(optional = false)
     @JoinColumn(name = "produto", nullable = false)
-    private Produto produto;
+    private Long produto;
 
     @Column(name = "quantidade", nullable = false)
-    private int Quantidade;
+    private int quantidade;
+
+    public ItemPedido(ItemPedidoDto itemPedidoDto){
+        this.pedidoId = itemPedidoDto.getPedidoId();
+        this.produto = itemPedidoDto.getProduto();
+        this.quantidade = itemPedidoDto.getQuantidade();
+    }
 
 }
