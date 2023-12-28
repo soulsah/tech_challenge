@@ -22,7 +22,7 @@ public class ProdutoRepository {
         return produtoRepositoryDB.findProdutosByTipo(tipoProduto);
     }
 
-    public Produto cadastrarProduto(Produto produto){ return produtoRepositoryDB.save(produto);}
+    public void cadastrarProduto(Produto produto){ produtoRepositoryDB.save(produto);}
 
     public Produto deleteById(Long produto_id){
         produtoRepositoryDB.deleteById(produto_id);

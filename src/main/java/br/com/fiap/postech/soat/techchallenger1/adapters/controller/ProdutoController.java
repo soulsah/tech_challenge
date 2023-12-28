@@ -60,8 +60,7 @@ public class ProdutoController {
         produtoExistente.setDescricao(produto.getDescricao());
         produtoExistente.setPreco(produto.getPreco());
 
-        Produto produtoAtualizado = produtoService.cadastrarProduto(new ProdutoDto(produtoExistente));
-        return ResponseEntity.ok(produtoAtualizado);
+        return ResponseEntity.ok(produtoExistente);
     }
 
     @DeleteMapping("/{id}")

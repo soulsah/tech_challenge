@@ -34,4 +34,10 @@ public class PedidoController {
         List<PedidoDto> listDto = list.stream().map(PedidoDto::new).toList();
         return ResponseEntity.ok().body(listDto);
     }
+
+    @PostMapping
+    public ResponseEntity novoPedido(@RequestBody PedidoDto pedido){
+        pedidoService.novoPedido(pedido);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Pedido recebido!");
+    }
 }
