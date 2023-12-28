@@ -41,3 +41,23 @@
 ### repository
 
 - **Descrição:** Contém interfaces relacionadas ao acesso a dados, como `ClienteRepository`. Responsável por fazer a ponte com a camada de adapters e chamar o `ClienteRepositoryDB`.
+
+### Exemplo JSON Novo Pedido:
+```
+{
+  "pedido":{
+    "clienteId": 1,
+    "status": "RECEBIDO"
+  },
+  "itensPedido": [
+    {
+      "produto": 1,
+      "quantidade": 2
+    },
+    {
+      "produto": 2,
+      "quantidade": 3
+    }
+  ]
+}
+```
