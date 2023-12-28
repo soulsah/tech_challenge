@@ -28,8 +28,8 @@ public class ProdutoServiceImpl implements ProdutoService{
     public List<Produto> findProdutosByTipo(Long tipo) { return produtoRepository.findProdutosByTipo(tipo);}
 
     @Override
-    public Produto cadastrarProduto(ProdutoDto produto){
-        return produtoRepository.cadastrarProduto(new Produto(produto));
+    public void cadastrarProduto(ProdutoDto produto){
+        produtoRepository.cadastrarProduto(new Produto(produto));
     }
 
     @Override

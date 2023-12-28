@@ -17,4 +17,6 @@ public interface PedidoRepositoryDB extends JpaRepository<Pedido,Long> {
     List<Pedido> findAll();
 
     List<Pedido> findPedidosByClienteId(Long id);
+
+    Pedido save(Pedido pedido);
 }
