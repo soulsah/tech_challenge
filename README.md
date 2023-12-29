@@ -42,7 +42,7 @@
 
 - **Descrição:** Contém interfaces relacionadas ao acesso a dados, como `ClienteRepository`. Responsável por fazer a ponte com a camada de adapters e chamar o `ClienteRepositoryDB`.
 
-### Exemplo JSON Novo Pedido:
+### Schema JSON Novo Pedido:
 ```
 {
   "pedido":{
@@ -59,5 +59,17 @@
       "quantidade": 3
     }
   ]
+}
+```
+
+### Schema JSON Novo Produto:
+```
+{
+  "tipo": {
+    "id": 1,
+    "descricao": "Lanche"
+  },
+  "descricao": "X-Salada",
+  "preco": 12.50
 }
 ```
