@@ -32,9 +32,12 @@ public class PedidoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PedidoDto> findPedidoById(@PathVariable Long id){
+    public ResponseEntity findPedidoById(@PathVariable Long id){
         Pedido pedido = pedidoService.findPedidoById(id);
-        return ResponseEntity.ok().body(new PedidoDto(pedido));
+        if(pedido != null){
+            return ResponseEntity.ok().body(new PedidoDto(pedido));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
     }
 
     @PostMapping("/novo")
