@@ -1,11 +1,9 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.repository;
 
+import br.com.fiap.postech.soat.techchallenger1.adapters.repository.FilaPedidoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.adapters.repository.ItemPedidoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.adapters.repository.PedidoRepositoryDB;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.ItemPedido;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.StatusPedido;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +17,9 @@ public class PedidoRepository {
     @Autowired
     ItemPedidoRepositoryDB itemPedidoRepository;
 
+    @Autowired
+    FilaPedidoRepositoryDB filaPedidoRepository;
+
     public List<Pedido> findAll(){ return pedidoRepository.findAll(); }
     public List<Pedido> findPedidosByClienteId(Long cliente_id){ return pedidoRepository.findPedidosByClienteId(cliente_id);}
 
@@ -29,6 +30,12 @@ public class PedidoRepository {
         novoPedido.setClienteId(pedido.getClienteId());
         novoPedido.setStatus(pedido.getStatus());
         pedidoRepository.save(novoPedido);
+
+        FilaPedido filaPedido = new FilaPedido();
+        filaPedido.setPedidoId(novoPedido.getId());
+        filaPedido.setClienteId(novoPedido.getClienteId());
+        filaPedido.setStatusPedido(novoPedido.getStatus());
+        filaPedidoRepository.save(filaPedido);
 
         List<ItemPedido> itensPedido = itens.stream()
                 .map(item -> {

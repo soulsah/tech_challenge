@@ -1,6 +1,8 @@
 package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.*;
+import br.com.fiap.postech.soat.techchallenger1.application.FilaService;
 import br.com.fiap.postech.soat.techchallenger1.application.PedidoService;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,9 @@ public class PedidoController {
 
     @Autowired
     PedidoService pedidoService;
+
+    @Autowired
+    FilaService filaService;
 
     @GetMapping
     public ResponseEntity<List<PedidoDto>> findAll(){
@@ -44,5 +49,43 @@ public class PedidoController {
     public ResponseEntity novoPedido(@RequestBody NovoPedidoDto novoPedidoDto){
         pedidoService.novoPedido(novoPedidoDto.getPedido(),novoPedidoDto.getItensPedido());
         return ResponseEntity.status(HttpStatus.CREATED).body("Pedido criado!");
+    }
+
+    @GetMapping("/iniciar/{id}")
+    public ResponseEntity iniciarPedido(@PathVariable Long id){
+        FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
+        if(filaPedido != null){
+            filaService.processarPedido(filaPedido);
+            return ResponseEntity.status(HttpStatus.OK).body("Novo status: " + filaPedido.getStatusPedido());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
+    }
+
+    @GetMapping("/finalizar/{id}")
+    public ResponseEntity finalizarPedido(@PathVariable Long id){
+        FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
+        if(filaPedido != null){
+            if(filaPedido.getStatusPedido().ordinal() != 1){
+                return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Não foi possível atualizar pedido!\n" +
+                        "Status do pedido: " + filaPedido.getStatusPedido());
+            }
+            filaService.processarPedido(filaPedido);
+            return ResponseEntity.status(HttpStatus.OK).body("Novo status: " + filaPedido.getStatusPedido());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
+    }
+
+    @GetMapping("/entregar/{id}")
+    public ResponseEntity entregarPedido(@PathVariable Long id){
+        FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
+        if(filaPedido != null){
+            if(filaPedido.getStatusPedido().ordinal() != 2){
+                return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Não foi possível entregar o pedido!\n" +
+                        "Status do pedido: " + filaPedido.getStatusPedido());
+            }
+            filaService.processarPedido(filaPedido);
+            return ResponseEntity.status(HttpStatus.OK).body("Novo status: " + filaPedido.getStatusPedido());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
     }
 }
