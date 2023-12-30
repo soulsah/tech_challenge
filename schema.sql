@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS tb_itens_pedido CASCADE;
 DROP TABLE IF EXISTS tb_produto CASCADE;
 DROP TABLE IF EXISTS tb_tipo_produto CASCADE;
 DROP TABLE IF EXISTS tb_status_pedido CASCADE;
+DROP TABLE IF EXISTS tb_fila_pedidos CASCADE;
 
 CREATE TABLE tb_tipo_produto (
                                  ID SERIAL PRIMARY KEY,
@@ -50,3 +51,10 @@ CREATE TABLE tb_itens_pedido (
                                  FOREIGN KEY (Pedido_ID) REFERENCES tb_pedido(ID)
 );
 
+CREATE TABLE tb_fila_pedidos (
+                                 Pedido_ID SERIAL PRIMARY KEY,
+                                 Cliente_ID INT,
+                                 Status INT,
+                                 criado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                 FOREIGN KEY (Cliente_ID) REFERENCES tb_cliente(ID)
+);

@@ -4,9 +4,11 @@ public enum StatusPedido {
     RECEBIDO(1),
     EM_PREPARACAO(2),
     PRONTO(3),
-    FINALIZADO(4);
+    ENTREGUE(4);
 
     private final int value;
+
+    private static final StatusPedido[] valores = values();
 
     StatusPedido(int value) {
         this.value = value;
@@ -23,5 +25,9 @@ public enum StatusPedido {
             }
         }
         throw new IllegalArgumentException("Valor inválido para StatusPedido: " + value);
+    }
+
+    public StatusPedido next(){
+        return valores[(this.ordinal() + 1 ) % valores.length];
     }
 }
