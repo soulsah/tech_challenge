@@ -3,6 +3,7 @@ package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ClienteDto;
 import br.com.fiap.postech.soat.techchallenger1.application.ClienteService;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
+import br.com.fiap.postech.soat.techchallenger1.domain.exception.CpfNaoEncontradoException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,5 +34,16 @@ public class ClienteController {
     public ResponseEntity cadastroCliente(@RequestBody @Valid ClienteDto cliente) throws CadastroClienteException {
         clienteService.criarUsuario(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com sucesso");
+    }
+
+    @Operation(summary = "Busca um cliente",
+            description = "Busca um cliente com base no cpf")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Cliente Encontrado"),
+            @ApiResponse(responseCode = "400", description = "Cpf não está cadastrado"),
+    })
+    @GetMapping("/cliente/{cpf}")
+    public ResponseEntity<ClienteDto> findClientByCpf(@PathVariable String cpf) throws CpfNaoEncontradoException {
+       return ResponseEntity.ok().body(clienteService.findByCpf(cpf));
     }
 }
