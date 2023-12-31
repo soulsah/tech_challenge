@@ -35,6 +35,13 @@ public class ClienteController {
         clienteService.criarUsuario(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com sucesso");
     }
+
+    @Operation(summary = "Busca um cliente",
+            description = "Busca um cliente com base no cpf")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Cliente Encontrado"),
+            @ApiResponse(responseCode = "400", description = "Cpf não está cadastrado"),
+    })
     @GetMapping("/cliente/{cpf}")
     public ResponseEntity<ClienteDto> findClientByCpf(@PathVariable String cpf) throws CpfNaoEncontradoException {
        return ResponseEntity.ok().body(clienteService.findByCpf(cpf));
