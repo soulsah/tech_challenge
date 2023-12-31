@@ -1,6 +1,7 @@
 package br.com.fiap.postech.soat.techchallenger1.adapters.dto;
 
 
+import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -29,4 +30,10 @@ public class ClienteDto{
     @NotEmpty
     @Email
     private String email;
+
+    public ClienteDto(Cliente cliente){
+        this.cpf = cliente.getCpf();
+        this.nome = cliente.getNome();
+        this.email = cliente.getEmail();
+    }
 }
