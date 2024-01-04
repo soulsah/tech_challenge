@@ -3,6 +3,7 @@ package br.com.fiap.postech.soat.techchallenger1.adapters.exception;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.BadRequestException;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.CpfNaoEncontradoException;
+import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,18 @@ import java.util.Map;
 
     @ExceptionHandler(CpfNaoEncontradoException.class)
     protected ResponseEntity<Object> badRequest(CpfNaoEncontradoException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", Instant.now());
+        body.put("status", status.value());
+        body.put("error", e.getMessage());
+        body.put("path", request.getRequestURI());
+        return new ResponseEntity<>(body, status);
+    }
+    
+    @ExceptionHandler(PedidoException.class)
+    protected  ResponseEntity<Object> badRequest(PedidoException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
         Map<String, Object> body = new HashMap<>();
