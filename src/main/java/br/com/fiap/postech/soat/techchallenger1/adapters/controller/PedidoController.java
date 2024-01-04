@@ -2,8 +2,12 @@ package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.*;
 import br.com.fiap.postech.soat.techchallenger1.application.FilaService;
 import br.com.fiap.postech.soat.techchallenger1.application.PedidoService;
+import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,27 +26,38 @@ public class PedidoController {
     @Autowired
     FilaService filaService;
 
+
+    @Operation(summary = "Busca todos os pedidos",
+            description = "Busca todos os pedidos na base de datos")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Pedidos encontrados"),
+            @ApiResponse(responseCode = "400", description = "Nenhum pedido encontrado")
+    })
     @GetMapping
-    public ResponseEntity<List<PedidoDto>> findAll(){
-        List<Pedido> list = pedidoService.findAll();
-        List<PedidoDto> listDto = list.stream().map(PedidoDto::new).toList();
-        return ResponseEntity.ok().body(listDto);
+    public ResponseEntity<List<PedidoDto>> findAll() throws PedidoException{
+        return ResponseEntity.ok().body(pedidoService.findAll().stream().map(PedidoDto::new).toList());
     }
 
+    @Operation(summary = "Busca pedidos de cliente",
+            description = "Busca pedidos de cliente específico")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Pedidos encontrados"),
+            @ApiResponse(responseCode = "400", description = "Pedidos não encontrados")
+    })
     @GetMapping("/cliente/{cliente_id}")
-    public ResponseEntity<List<PedidoDto>> findPedidosByClienteId(@PathVariable("cliente_id") Long cliente_id) {
-        List<Pedido> pedidos = pedidoService.findPedidosByClienteId(cliente_id);
-        List<PedidoDto> pedidoDtos = pedidos.stream().map(PedidoDto::new).toList();
-        return ResponseEntity.ok().body(pedidoDtos);
+    public ResponseEntity<List<PedidoDto>> findPedidosByClienteId(@PathVariable("cliente_id") Long cliente_id) throws PedidoException{
+        return ResponseEntity.ok().body(pedidoService.findPedidosByClienteId(cliente_id).stream().map(PedidoDto::new).toList());
     }
 
+    @Operation(summary = "Busca pedido",
+            description = "Busca pedido específico por ID")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Pedido encontrado"),
+            @ApiResponse(responseCode = "400", description = "Pedido não encontrado")
+    })
     @GetMapping("/{id}")
-    public ResponseEntity findPedidoById(@PathVariable Long id){
-        Pedido pedido = pedidoService.findPedidoById(id);
-        if(pedido != null){
-            return ResponseEntity.ok().body(new PedidoDto(pedido));
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
+    public ResponseEntity findPedidoById(@PathVariable Long id) throws PedidoException {
+        return ResponseEntity.ok().body(new PedidoDto(pedidoService.findPedidoById(id)));
     }
 
     @PostMapping("/novo")
