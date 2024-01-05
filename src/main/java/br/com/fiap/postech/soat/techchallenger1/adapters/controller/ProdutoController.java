@@ -43,13 +43,13 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity cadastroProduto(@RequestBody ProdutoDto produto){
+    public ResponseEntity<?> cadastroProduto(@RequestBody ProdutoDto produto){
         produtoService.cadastrarProduto(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produto){
+    public ResponseEntity<?> atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDto produto){
         Produto produtoExistente = produtoService.findProdutoById(id);
 
         if(produtoExistente == null){
@@ -64,7 +64,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity excluirProduto(@PathVariable Long id){
+    public ResponseEntity<?> excluirProduto(@PathVariable Long id){
         Produto produtoExistente = produtoService.findProdutoById(id);
 
         if(produtoExistente == null){

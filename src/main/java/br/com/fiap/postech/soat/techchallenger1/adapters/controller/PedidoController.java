@@ -56,20 +56,24 @@ public class PedidoController {
             @ApiResponse(responseCode = "400", description = "Pedido não encontrado")
     })
     @GetMapping("/{id}")
-    public ResponseEntity findPedidoById(@PathVariable Long id) throws PedidoException {
+    public ResponseEntity<?> findPedidoById(@PathVariable Long id) throws PedidoException {
         return ResponseEntity.ok().body(new PedidoDto(pedidoService.findPedidoById(id)));
     }
 
     @PostMapping("/novo")
-    public ResponseEntity novoPedido(@RequestBody NovoPedidoDto novoPedidoDto){
+    public ResponseEntity<?> novoPedido(@RequestBody NovoPedidoDto novoPedidoDto){
         pedidoService.novoPedido(novoPedidoDto.getPedido(),novoPedidoDto.getItensPedido());
         return ResponseEntity.status(HttpStatus.CREATED).body("Pedido criado!");
     }
 
     @GetMapping("/iniciar/{id}")
-    public ResponseEntity iniciarPedido(@PathVariable Long id){
+    public ResponseEntity<?> iniciarPedido(@PathVariable Long id){
         FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
         if(filaPedido != null){
+            if(filaPedido.getStatusPedido().ordinal() != 0){
+                return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Não foi possível iniciar o pedido!\n" +
+                        "Status do pedido: " + filaPedido.getStatusPedido());
+            }
             filaService.processarPedido(filaPedido);
             return ResponseEntity.status(HttpStatus.OK).body("Novo status: " + filaPedido.getStatusPedido());
         }
@@ -77,7 +81,7 @@ public class PedidoController {
     }
 
     @GetMapping("/finalizar/{id}")
-    public ResponseEntity finalizarPedido(@PathVariable Long id){
+    public ResponseEntity<?> finalizarPedido(@PathVariable Long id){
         FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
         if(filaPedido != null){
             if(filaPedido.getStatusPedido().ordinal() != 1){
@@ -91,7 +95,7 @@ public class PedidoController {
     }
 
     @GetMapping("/entregar/{id}")
-    public ResponseEntity entregarPedido(@PathVariable Long id){
+    public ResponseEntity<?> entregarPedido(@PathVariable Long id){
         FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);
         if(filaPedido != null){
             if(filaPedido.getStatusPedido().ordinal() != 2){
