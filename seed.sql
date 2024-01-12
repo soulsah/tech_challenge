@@ -3,7 +3,7 @@ INSERT INTO tb_cliente (CPF, Nome, Email)
 VALUES ('12345678900', 'Guilherme', 'guilherme@email.com');
 
 INSERT INTO tb_cliente (CPF, Nome, Email)
-VALUES ('46619218873', 'Matheus', 'matheus@gmail.com');
+VALUES ('12345678901', 'Matheus', 'matheus@email.com');
 
 -- Inserir dados de exemplo
 INSERT INTO tb_pedido (Cliente_ID, Status)
