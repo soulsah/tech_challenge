@@ -1,3 +1,46 @@
+## 1- Relatório Técnico
+Tecnologias e ferramentas utilizadas
+
+* Linguagem de programação: 
+
+    * Java 17
+
+* Framework:
+    * Spring Boot 3.1.5
+
+* Bibliotecas:
+  * Spring Web
+  * OpenAPI
+  * Lombok
+    
+* Banco de dados:
+  * PostgreSQL
+* Outras ferramentas:
+  * Docker
+
+## Configurações da solução
+
+### Banco de Dados
+Configuração de produção utilizando o PostgreSQL:
+https://github.com/andzedd/tech_challenge/blob/master/src/main/resources/application.properties
+
+Relacionamento entre as entidades:
+
+
+### Container
+
+
+Criamos um container para aplicação e outro para o banco de dados e uma rede no modo bridge para ter acesso ao containers via localhost:
+
+
+Também adicionamos o arquivo Dockerfile que gerencia o processo de build da aplicação através do Maven e JDK, já inicializando a aplicação:
+
+
+Para criação dos container, compilar e rodar a applicação é necessário apenas o comando:
+
+docker-compose up -d
+
+
 # Estrutura do Projeto - Tech Challenge
 
 ## Adapters (ou Port Adapters):
@@ -42,34 +85,5 @@
 
 - **Descrição:** Contém interfaces relacionadas ao acesso a dados, como `ClienteRepository`. Responsável por fazer a ponte com a camada de adapters e chamar o `ClienteRepositoryDB`.
 
-### Schema JSON Novo Pedido:
-```
-{
-  "pedido":{
-    "clienteId": 1,
-    "status": "RECEBIDO"
-  },
-  "itensPedido": [
-    {
-      "produto": 1,
-      "quantidade": 2
-    },
-    {
-      "produto": 2,
-      "quantidade": 3
-    }
-  ]
-}
-```
-
-### Schema JSON Novo Produto:
-```
-{
-  "tipo": {
-    "id": 1,
-    "descricao": "Lanche"
-  },
-  "descricao": "X-Salada",
-  "preco": 12.50
-}
-```
+### Postman
+- Disponibilizamos um arquivo JSON com todas as requisições Postman para testar a API, disponível no seguinte link:
