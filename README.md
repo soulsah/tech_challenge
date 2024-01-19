@@ -1,3 +1,9 @@
+## Membros do Grupo
+✅ Matheus dos Santos Souza - RM351686
+✅ Guilherme Oliveira
+✅ Marcos Alves
+✅ Danilo Silva
+
 ## 1- Relatório Técnico
 Tecnologias e ferramentas utilizadas
 
@@ -17,6 +23,10 @@ Tecnologias e ferramentas utilizadas
   * PostgreSQL
 * Outras ferramentas:
   * Docker
+ 
+## Event Storming
+
+O projeto foi elaborado com base na Arquitetura Hexagonal seguindo os conceitos de DDD, cujo Event Storming pode ser acessado [aqui](https://miro.com/app/board/uXjVN4e5Mps=/?share_link_id=181314720008)
 
 ## Configurações da solução
 
