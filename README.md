@@ -1,8 +1,8 @@
 ## Membros do Grupo
-✅ Matheus dos Santos Souza - RM351686
-✅ Guilherme Oliveira
-✅ Marcos Alves
-✅ Danilo Silva
+* Matheus dos Santos Souza - RM351686
+* Guilherme Oliveira
+* Marcos Alves
+* Danilo Silva
 
 ## 1- Relatório Técnico
 Tecnologias e ferramentas utilizadas
