@@ -24,6 +24,10 @@ Tecnologias e ferramentas utilizadas
 * Outras ferramentas:
   * Docker
  
+## Requests Collection
+
+A Collection para realização das requests pode ser encontrada [aqui](https://github.com/andzedd/tech_challenge/blob/master/Tech_challenge_Collection.json)
+ 
 ## Event Storming
 
 O projeto foi elaborado com base na Arquitetura Hexagonal seguindo os conceitos de DDD, cujo Event Storming pode ser acessado [aqui](https://miro.com/app/board/uXjVN4e5Mps=/?share_link_id=181314720008)
