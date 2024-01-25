@@ -65,43 +65,43 @@ docker-compose up -d
 
 ### controller
 
-- **Descrição:** Camada de interface do usuário representada pelo `ClienteController`. Responsável por receber e processar as requisições da interface do usuário.
+- **Descrição:** Camada de interface do usuário . Responsável por receber e processar as requisições da interface.
 
 ### dto
 
-- **Descrição:** Contém objetos de transferência de dados relacionados a clientes, como `ClienteDto`.
+- **Descrição:** Contém objetos de transferência de dados .
 
 ### exception
 
-- **Descrição:** Contém classes relacionadas ao tratamento de exceções, como `CustomExceptionHandler`.
+- **Descrição:** Contém classes relacionadas ao tratamento de exceções.
 
 ### repository
 
-- **Descrição:** Contém componentes relacionados ao armazenamento de dados, como `ClienteRepositoryDB`.
+- **Descrição:** Contém componentes relacionados ao armazenamento de dados.
 
 ## Application:
 
 ### clienteService
 
-- **Descrição:** Interface que fornece serviços relacionados a clientes.
+- **Descrição:** Interface que fornece serviços.
 
 ### impl
 
-- **Descrição:** Contém a implementação concreta dos serviços, como `ClienteServiceImpl`. Esta camada utiliza a camada de domínio para realizar operações de negócios e chama o `ClienteRepository` para acessar dados.
+- **Descrição:** Contém a implementação concreta dos serviços. Esta camada utiliza a camada de domínio para realizar operações de negócios e chama a interface repository para acessar dados.
 
 ## Domain:
 
 ### exception
 
-- **Descrição:** Contém exceções específicas do domínio, como `CadastroClienteException` e `BadRequestException`.
+- **Descrição:** Contém exceções específicas do domínio.
 
 ### model
 
-- **Descrição:** Contém as entidades de domínio, como `Cliente`.
+- **Descrição:** Contém as entidades de domínio.
 
 ### repository
 
-- **Descrição:** Contém interfaces relacionadas ao acesso a dados, como `ClienteRepository`. Responsável por fazer a ponte com a camada de adapters e chamar o `ClienteRepositoryDB`.
+- **Descrição:** Contém interfaces relacionadas ao acesso a dados. Responsável por fazer a ponte com a camada de adapters.
 
 ### Postman
 - Disponibilizamos um arquivo JSON com todas as requisições Postman para testar a API, disponível no seguinte link:
