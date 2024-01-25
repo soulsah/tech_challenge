@@ -22,7 +22,7 @@ Tecnologias e ferramentas utilizadas
 ### Documentação das APIS 
 Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
 
-![image]([https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png])
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png)
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/pedidos.png)
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/produtos.png)
 
