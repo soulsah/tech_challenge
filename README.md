@@ -30,7 +30,7 @@ Adicionamos a geração automática da documentação através da biblioteca Spr
  
 ## Requests Collection
 
-A Collection para realização das requests pode ser encontrada [aqui](https://github.com/andzedd/tech_challenge/blob/master/Tech_challenge_Collection.json)
+A Collection para realização das requests pode ser encontrada [postman](https://github.com/andzedd/tech_challenge/blob/master/techChallengeCollection%20-%20postman) [insominia](https://github.com/andzedd/tech_challenge/blob/master/techChallengerCollection%20-insominia)
  
 ## Event Storming
 
