@@ -1,9 +1,3 @@
-## Membros do Grupo
-* Matheus dos Santos Souza - RM351686
-* Guilherme Oliveira
-* Marcos Alves
-* Danilo Silva
-
 ## 1- Relatório Técnico
 Tecnologias e ferramentas utilizadas
 
@@ -23,6 +17,16 @@ Tecnologias e ferramentas utilizadas
   * PostgreSQL
 * Outras ferramentas:
   * Docker
+
+    
+### Documentação das APIS 
+Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
+
+![image]([https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png])
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/pedidos.png)
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/produtos.png)
+
+
  
 ## Requests Collection
 
