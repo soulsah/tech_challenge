@@ -19,18 +19,6 @@ Tecnologias e ferramentas utilizadas
   * Docker
 
     
-### Documentação das APIS 
-Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
-
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png)
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/pedidos.png)
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/produtos.png)
-
-
- 
-## Requests Collection
-
-A Collection para realização das requests pode ser encontrada [postman](https://github.com/andzedd/tech_challenge/blob/master/techChallengeCollection%20-%20postman) [insominia](https://github.com/andzedd/tech_challenge/blob/master/techChallengerCollection%20-insominia)
  
 ## Event Storming
 
@@ -57,6 +45,21 @@ Também adicionamos o arquivo Dockerfile que gerencia o processo de build da apl
 Para criação dos container, compilar e rodar a applicação é necessário apenas o comando:
 
 docker-compose up -d
+
+
+
+### Documentação das APIS 
+Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
+
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png)
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/pedidos.png)
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/produtos.png)
+
+
+ 
+## Requests Collection
+
+A Collection para realização das requests pode ser encontrada [postman](https://github.com/andzedd/tech_challenge/blob/master/techChallengeCollection%20-%20postman) [insominia](https://github.com/andzedd/tech_challenge/blob/master/techChallengerCollection%20-insominia)
 
 
 # Estrutura do Projeto - Tech Challenge
