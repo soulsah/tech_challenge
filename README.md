@@ -31,7 +31,8 @@ Configuração de produção utilizando o PostgreSQL:
 https://github.com/andzedd/tech_challenge/blob/master/src/main/resources/application.properties
 
 Relacionamento entre as entidades:
-(https://github.com/andzedd/tech_challenge/blob/master/images/tabelas.png)
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/tabelas.png)
+
 
 
 ### Container
