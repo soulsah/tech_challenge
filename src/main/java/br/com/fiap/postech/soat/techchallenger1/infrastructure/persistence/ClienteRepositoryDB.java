@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.repository;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence;
 
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;

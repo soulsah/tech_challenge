@@ -1,8 +1,7 @@
-package br.com.fiap.postech.soat.techchallenger1.application;
+package br.com.fiap.postech.soat.techchallenger1.application.service;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
-import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.*;
-import br.com.fiap.postech.soat.techchallenger1.application.FilaService;
-import br.com.fiap.postech.soat.techchallenger1.application.PedidoService;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.controller;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.NovoPedidoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
+import br.com.fiap.postech.soat.techchallenger1.application.service.FilaService;
+import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

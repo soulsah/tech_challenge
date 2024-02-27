@@ -1,6 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.repository;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.repository.ProdutoRepositoryDB;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.ProdutoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.TipoProduto;
 import org.springframework.beans.factory.annotation.Autowired;

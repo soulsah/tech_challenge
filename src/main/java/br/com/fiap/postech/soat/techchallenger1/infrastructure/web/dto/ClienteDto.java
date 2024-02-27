@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.dto;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto;
 
 
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
 
 @Data
 @NoArgsConstructor

@@ -1,8 +1,8 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.repository;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.repository.FilaPedidoRepositoryDB;
-import br.com.fiap.postech.soat.techchallenger1.adapters.repository.ItemPedidoRepositoryDB;
-import br.com.fiap.postech.soat.techchallenger1.adapters.repository.PedidoRepositoryDB;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.FilaPedidoRepositoryDB;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.ItemPedidoRepositoryDB;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.PedidoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

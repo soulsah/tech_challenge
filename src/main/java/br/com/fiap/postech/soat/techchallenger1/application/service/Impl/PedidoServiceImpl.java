@@ -1,13 +1,9 @@
-package br.com.fiap.postech.soat.techchallenger1.application.Impl;
+package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ClienteDto;
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ItemPedidoDto;
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.PedidoDto;
-import br.com.fiap.postech.soat.techchallenger1.application.PedidoService;
-import br.com.fiap.postech.soat.techchallenger1.application.ProdutoService;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
+import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
-import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.ItemPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.repository.PedidoRepository;
@@ -15,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PedidoServiceImpl implements PedidoService{

@@ -1,6 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;

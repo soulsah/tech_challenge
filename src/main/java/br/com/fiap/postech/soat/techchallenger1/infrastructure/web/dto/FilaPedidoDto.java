@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.dto;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto;
 
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.StatusPedido;
