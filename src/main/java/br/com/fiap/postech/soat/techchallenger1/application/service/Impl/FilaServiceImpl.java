@@ -2,7 +2,7 @@ package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 
 import br.com.fiap.postech.soat.techchallenger1.application.service.FilaService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
-import br.com.fiap.postech.soat.techchallenger1.domain.repository.FilaRepository;
+import br.com.fiap.postech.soat.techchallenger1.application.repository.FilaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

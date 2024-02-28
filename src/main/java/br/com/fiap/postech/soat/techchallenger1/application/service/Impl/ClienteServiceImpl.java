@@ -2,10 +2,10 @@ package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ClienteDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.ClienteService;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CpfNaoEncontradoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.CadastroClienteException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.CpfNaoEncontradoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Cliente;
-import br.com.fiap.postech.soat.techchallenger1.domain.repository.ClienteRepository;
+import br.com.fiap.postech.soat.techchallenger1.application.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

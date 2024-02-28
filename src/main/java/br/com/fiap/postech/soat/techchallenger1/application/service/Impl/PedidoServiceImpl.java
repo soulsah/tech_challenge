@@ -3,10 +3,10 @@ package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.ItemPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
-import br.com.fiap.postech.soat.techchallenger1.domain.repository.PedidoRepository;
+import br.com.fiap.postech.soat.techchallenger1.application.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -18,4 +18,5 @@ public class TipoProduto {
 
     @Column(name = "descricao")
     private String descricao;
+
 }

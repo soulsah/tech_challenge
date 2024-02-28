@@ -2,7 +2,7 @@ package br.com.fiap.postech.soat.techchallenger1.application.service;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 
 import java.util.List;

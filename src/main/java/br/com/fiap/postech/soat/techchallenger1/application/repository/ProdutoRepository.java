@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.domain.repository;
+package br.com.fiap.postech.soat.techchallenger1.application.repository;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.ProdutoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;

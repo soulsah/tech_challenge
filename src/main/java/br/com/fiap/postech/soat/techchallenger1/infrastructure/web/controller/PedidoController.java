@@ -3,7 +3,7 @@ import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.NovoPedid
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.FilaService;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -1,9 +1,9 @@
 package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.exception;
 
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.BadRequestException;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CpfNaoEncontradoException;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.BadRequestException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.CadastroClienteException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.CpfNaoEncontradoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
