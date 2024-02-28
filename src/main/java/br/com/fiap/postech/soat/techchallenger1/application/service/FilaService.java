@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.application;
+package br.com.fiap.postech.soat.techchallenger1.application.service;
 
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 

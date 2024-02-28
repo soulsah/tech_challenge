@@ -1,7 +1,7 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.controller;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ProdutoDto;
-import br.com.fiap.postech.soat.techchallenger1.application.ProdutoService;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
+import br.com.fiap.postech.soat.techchallenger1.application.service.ProdutoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

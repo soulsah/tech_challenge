@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.exception;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.exception;
 
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.BadRequestException;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;

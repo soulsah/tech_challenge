@@ -1,9 +1,7 @@
-package br.com.fiap.postech.soat.techchallenger1.application;
+package br.com.fiap.postech.soat.techchallenger1.application.service;
 
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ClienteDto;
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.ItemPedidoDto;
-import br.com.fiap.postech.soat.techchallenger1.adapters.dto.PedidoDto;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 
