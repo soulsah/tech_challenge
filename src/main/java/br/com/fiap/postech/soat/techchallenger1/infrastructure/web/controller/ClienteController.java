@@ -2,13 +2,9 @@ package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.controller;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ClienteDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.ClienteService;
-<<<<<<< HEAD
 import br.com.fiap.postech.soat.techchallenger1.application.exception.CadastroClienteException;
 import br.com.fiap.postech.soat.techchallenger1.application.exception.CpfNaoEncontradoException;
-=======
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CadastroClienteException;
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.CpfNaoEncontradoException;
->>>>>>> e77518c0e3dfbb4069ea381664d56ab75376a827
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

@@ -3,11 +3,7 @@ package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
-<<<<<<< HEAD
 import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
-=======
-import br.com.fiap.postech.soat.techchallenger1.domain.exception.PedidoException;
->>>>>>> e77518c0e3dfbb4069ea381664d56ab75376a827
 import br.com.fiap.postech.soat.techchallenger1.domain.model.ItemPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
 import br.com.fiap.postech.soat.techchallenger1.application.repository.PedidoRepository;
