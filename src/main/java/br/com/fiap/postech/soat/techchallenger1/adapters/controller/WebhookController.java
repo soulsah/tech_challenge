@@ -2,6 +2,7 @@ package br.com.fiap.postech.soat.techchallenger1.adapters.controller;
 
 
 import br.com.fiap.postech.soat.techchallenger1.adapters.dto.NotificacaoPagamentoDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,21 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/webhook")
 public class WebhookController {
 
-    @PostMapping("/payment")
-    public ResponseEntity<String> paymentNotification(@RequestBody NotificacaoPagamentoDto notification){
-        String paymentStatus = notification.getStatus();
+    @PostMapping
+    public ResponseEntity<String> handleMercadoPagoWebhook(@RequestBody String payload) {
+        try {
+            // Desserializa a carga útil JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            NotificacaoPagamentoDto notificacaoPagamentoDto = objectMapper.readValue(payload, NotificacaoPagamentoDto.class);
 
-        /*
-                To do:
-                Lógica do webhook
-        */
-        if("approved".equalsIgnoreCase(paymentStatus)){
-            System.out.println("Pagamento aprovado");
-        } else if ("recusado".equalsIgnoreCase(paymentStatus)){
-            System.out.println("Pagamento recusado");
-        } else {
-            System.out.println("Pagamento em estado desconhecido");
+            System.out.println("Recebida notificação de pagamento: " + notificacaoPagamentoDto);
+            
+            // Responde ao serviço do mp
+            return new ResponseEntity<>("Notification received", HttpStatus.OK);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Erro ao processar webhook: ", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>("Notificação de pagamento recebida com sucesso", HttpStatus.OK);
     }
 }
