@@ -1,9 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.exception;
 
-import br.com.fiap.postech.soat.techchallenger1.application.exception.BadRequestException;
-import br.com.fiap.postech.soat.techchallenger1.application.exception.CadastroClienteException;
-import br.com.fiap.postech.soat.techchallenger1.application.exception.CpfNaoEncontradoException;
-import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,6 +54,17 @@ import java.util.Map;
     @ExceptionHandler(PedidoException.class)
     protected  ResponseEntity<Object> badRequest(PedidoException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", Instant.now());
+        body.put("status", status.value());
+        body.put("error", e.getMessage());
+        body.put("path", request.getRequestURI());
+        return new ResponseEntity<>(body, status);
+    }
+    @ExceptionHandler(CardNotFoundException.class)
+    protected  ResponseEntity<Object> notFound(CardNotFoundException e, HttpServletRequest request){
+        HttpStatus status = HttpStatus.NOT_FOUND;
 
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", Instant.now());
