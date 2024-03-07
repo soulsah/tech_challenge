@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebhookController {
 
     @PostMapping
-    public ResponseEntity<String> handleMercadoPagoWebhook(@RequestBody String payload) {
+    public ResponseEntity<String> handlePaymentWebHook(@RequestBody String payload) {
         try {
             // Desserializa a carga útil JSON
             ObjectMapper objectMapper = new ObjectMapper();
             NotificacaoPagamentoDto notificacaoPagamentoDto = objectMapper.readValue(payload, NotificacaoPagamentoDto.class);
 
             System.out.println("Recebida notificação de pagamento: " + notificacaoPagamentoDto);
-            
+
             // Responde ao serviço do mp
             return new ResponseEntity<>("Notification received", HttpStatus.OK);
 

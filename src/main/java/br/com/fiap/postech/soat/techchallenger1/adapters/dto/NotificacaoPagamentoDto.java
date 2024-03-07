@@ -9,39 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NotificacaoPagamentoDto {
-    private String id;
-    private String status;
-    private Double valorTotal;
-    private String tipoPagamento;
-
-    @JsonProperty("id")
-    public String getId() {
-        return id;
-    }
+    @JsonProperty("pedidoId")
+    private int pedidoId;
 
     @JsonProperty("status")
-    public String getStatus() {
-        return status;
-    }
-
-    @JsonProperty("transaction_amount")
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    @JsonProperty("payment_type")
-    public void setTipoPagamento(String tipoPagamento) {
-        this.tipoPagamento = tipoPagamento;
-    }
-
-    @Override
-    public String toString() {
-        return "NotificacaoPagamentoDto{" +
-                "id='" + id + '\'' +
-                ", status='" + status + '\'' +
-                ", valorTotal=" + valorTotal +
-                ", tipoPagamento='" + tipoPagamento + '\'' +
-                // outros campos
-                '}';
-    }
+    private String status;
 }
