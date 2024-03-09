@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.application.service;
 
+import br.com.fiap.postech.soat.techchallenger1.application.exception.TipoProdutoNaoCadastradoException;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
 
@@ -12,7 +13,7 @@ public interface ProdutoService{
 
     List<Produto> findProdutosByTipo(Long tipo);
 
-    void cadastrarProduto(ProdutoDto produto);
+    void cadastrarProduto(ProdutoDto produto) throws TipoProdutoNaoCadastradoException;
 
     Produto deleteById(Long produto_id);
 }

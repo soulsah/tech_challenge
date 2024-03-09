@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface ClienteRepositoryDB  extends JpaRepository<Cliente,Long> {
-    public Cliente save(Cliente cliente) ;
+    Cliente save(Cliente cliente) ;
 
 
     Optional<Cliente> findByCpf(String cpf);
