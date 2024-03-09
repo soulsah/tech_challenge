@@ -1,20 +1,56 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: tech-challenge-deployment
+  name: db
 spec:
- replicas: 2
- selector:
+  selector:
     matchLabels:
-      app: tech-challenge
- template:
+      app: db
+  replicas: 1
+  template:
     metadata:
       labels:
-        app: tech-challenge
+        app: db
     spec:
       containers:
-      - name: tech-challenge
-        # image: tech_challenge-app/tech-challenge:latest
-        image: guilhermegomes1/tech_challenge-app
-        ports:
-        - containerPort: 8080
+        - name: db
+          image: postgres
+          env:
+            - name: POSTGRES_USER
+              value: compose-postgres
+            - name: POSTGRES_PASSWORD
+              value: compose-postgres
+          volumeMounts:
+            - name: db-volume
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: db-volume
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  selector:
+    matchLabels:
+      app: app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: guilhermegomes1/tech_challenge-app
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://db:5432/postgres
+            - name: SPRING_DATASOURCE_USERNAME
+              value: compose-postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: compose-postgres
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: update
+          ports:
+            - containerPort: 8080
