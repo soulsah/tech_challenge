@@ -68,47 +68,37 @@ A Collection para realização das requests pode ser encontrada [postman](https:
 
 # Estrutura do Projeto - Tech Challenge
 
-## Adapters (ou Port Adapters):
+# application
 
-### controller
+## exception
+- **Descrição:** Contém exceções específicas da aplicação.
 
-- **Descrição:** Camada de interface do usuário . Responsável por receber e processar as requisições da interface.
-
-### dto
-
-- **Descrição:** Contém objetos de transferência de dados .
-
-### exception
-
-- **Descrição:** Contém classes relacionadas ao tratamento de exceções.
-
-### repository
-
+## repository
 - **Descrição:** Contém componentes relacionados ao armazenamento de dados.
 
-## Application:
-
-### clienteService
-
+## service
 - **Descrição:** Interface que fornece serviços.
 
 ### impl
+- **Descrição:** Implementação da interface service contendo as regras de negócio.
 
-- **Descrição:** Contém a implementação concreta dos serviços. Esta camada utiliza a camada de domínio para realizar operações de negócios e chama a interface repository para acessar dados.
+# domain
 
-## Domain:
-
-### exception
-
-- **Descrição:** Contém exceções específicas do domínio.
-
-### model
-
+## model
 - **Descrição:** Contém as entidades de domínio.
 
-### repository
+# infrastructure
 
-- **Descrição:** Contém interfaces relacionadas ao acesso a dados. Responsável por fazer a ponte com a camada de adapters.
+## persistence
+- **Descrição:** Contém componentes relacionados ao armazenamento de dados.
 
-### Postman
-- Disponibilizamos um arquivo JSON com todas as requisições Postman para testar a API, disponível no seguinte link:
+## web
+
+### controller
+- **Descrição:** Camada de interface do usuário . Responsável por receber e processar as requisições da interface.
+
+### dto
+- **Descrição:** Contém objetos de transferência de dados .
+
+### exception
+- **Descrição:** Contém exceções específicas do domínio.
