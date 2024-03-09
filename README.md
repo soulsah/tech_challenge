@@ -51,6 +51,15 @@ Para criação dos container, compilar e rodar a applicação é necessário ape
 docker-compose up -d
 
 
+### Kubernetes
+
+Para utilizar a estrutura de Kubernetes para a aplicação e o banco de dados, consideramos a implementação de um sistema de autoescalabilidade horizontal baseado no uso de CPU e memória. Inicialmente, a aplicação é configurada com 4 PODs, distribuídos igualmente entre a aplicação e o banco de dados, totalizando 2 PODs para cada componente.
+
+Ao monitorar o uso de CPU e memória, caso qualquer POD atinja 70% de sua capacidade máxima de CPU ou memória, um novo POD é adicionado automaticamente para garantir a disponibilidade e o desempenho contínuos do sistema. Essa estratégia de autoescalabilidade ajuda a otimizar o uso dos recursos, garantindo que a aplicação possa lidar com picos de demanda sem comprometer a performance ou a disponibilidade.
+
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/k8s.png)
+
+
 
 ### Documentação das APIS 
 Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
