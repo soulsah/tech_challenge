@@ -27,15 +27,16 @@ public class Cartao {
     private String expirationDate;
     @Column(name = "cvv")
     private String cvv;
-    @JoinColumn(name = "cliente_id")
-    private String userId;
+    @JoinColumn(name = "user_id")
+    private int userId;
+
 
 
     public Cartao(CartaoDto cartaoDto) {
         this.cardNumber = cartaoDto.getCardNumber();
         this.cvv = cartaoDto.getCvv();
         this.expirationDate = cartaoDto.getExpirationDate();
-        this.userId = cartaoDto.getUserId();
+        this.userId = Integer.parseInt(cartaoDto.getUserId());
         this.cardHolderName = cartaoDto.getCardHolderName();
     }
 }

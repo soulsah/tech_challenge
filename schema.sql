@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS tb_produto CASCADE;
 DROP TABLE IF EXISTS tb_tipo_produto CASCADE;
 DROP TABLE IF EXISTS tb_status_pedido CASCADE;
 DROP TABLE IF EXISTS tb_fila_pedidos CASCADE;
+DROP TABLE IF EXISTS tb_cartao CASCADE;
 
 CREATE TABLE tb_tipo_produto (
                                  ID SERIAL PRIMARY KEY,
@@ -58,3 +59,15 @@ CREATE TABLE tb_fila_pedidos (
                                  criado TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                  FOREIGN KEY (Cliente_ID) REFERENCES tb_cliente(ID)
 );
+
+CREATE TABLE tb_cartao
+(
+    id              SERIAL PRIMARY KEY,
+    numero_cartao   VARCHAR(255) NOT NULL,
+    detentor_cartao VARCHAR(255) NOT NULL,
+    data_expiracao  VARCHAR(10)  NOT NULL,
+    cvv             VARCHAR(4)   NOT NULL,
+    cliente_id      int          NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES tb_cliente (ID)
+);
+

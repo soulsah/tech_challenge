@@ -1,5 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.controller;
 
+import br.com.fiap.postech.soat.techchallenger1.application.exception.TipoProdutoNaoCadastradoException;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
 import br.com.fiap.postech.soat.techchallenger1.application.service.ProdutoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Produto;
@@ -63,7 +64,7 @@ public class ProdutoController {
             @ApiResponse(responseCode = "201", description = "Busca realizada com sucesso"),
     })
     @PostMapping
-    public ResponseEntity<?> cadastroProduto(@RequestBody ProdutoDto produto){
+    public ResponseEntity<?> cadastroProduto(@RequestBody ProdutoDto produto) throws TipoProdutoNaoCadastradoException {
         produtoService.cadastrarProduto(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
     }
