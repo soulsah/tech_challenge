@@ -12,7 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CartaoDto {
-
+    @JsonProperty("id")
+    public long id;
     @JsonProperty("numero_cartao")
     private String cardNumber;
     @JsonProperty("titular_cartao")
@@ -26,10 +27,11 @@ public class CartaoDto {
 
 
     public CartaoDto(Cartao cartao){
+        this.id = cartao.getId();
         this.cardNumber = cartao.getCardNumber();
         this.cvv = cartao.getCvv();
         this.expirationDate = cartao.getExpirationDate();
-        this.userId = ""+cartao.getUserId();
+        this.userId = String.valueOf(cartao.getUserId());
         this.cardHolderName = cartao.getCardHolderName();
     }
 }

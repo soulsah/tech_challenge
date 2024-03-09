@@ -47,4 +47,8 @@ public class PedidoRepository {
                 }).toList();
         itemPedidoRepository.saveAll(itensPedido);
     }
+
+    public double getValorTotal(Long pedidoId) {
+        return pedidoRepository.getValorTotal(pedidoId);
+    }
 }

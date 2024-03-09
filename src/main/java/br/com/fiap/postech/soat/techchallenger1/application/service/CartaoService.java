@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface CartaoService {
 
-    public List<CartaoDto> getAllCards();
-    public CartaoDto getCardById(Long id) throws CardNotFoundException;
+    List<CartaoDto> getAllCards();
+    CartaoDto getCardById(Long id) throws CardNotFoundException;
 
-    public CartaoDto createCard(CartaoDto cardDTO);
-    public void deleteCard(Long id);
+    CartaoDto createCard(CartaoDto cardDTO);
+    void deleteCard(Long id);
 }

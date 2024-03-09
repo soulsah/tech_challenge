@@ -12,6 +12,7 @@ import java.util.List;
 @Transactional
 public interface ProdutoRepositoryDB extends JpaRepository<Produto,Long> {
 
+
     List<Produto> findAll();
 
     Produto findProdutoById(Long id);

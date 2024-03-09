@@ -6,7 +6,7 @@ import br.com.fiap.postech.soat.techchallenger1.application.exception.CpfNaoEnco
 
 public interface ClienteService {
 
-    public void criarUsuario(ClienteDto cliente) throws CadastroClienteException;
+    void criarUsuario(ClienteDto cliente) throws CadastroClienteException;
 
-    public ClienteDto findByCpf(String cpf) throws CpfNaoEncontradoException;
+    ClienteDto findByCpf(String cpf) throws CpfNaoEncontradoException;
 }

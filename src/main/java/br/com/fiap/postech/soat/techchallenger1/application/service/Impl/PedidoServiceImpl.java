@@ -35,6 +35,11 @@ public class PedidoServiceImpl implements PedidoService{
     }
 
     @Override
+    public double getValorTotal(Long pedidoId) {
+        return pedidoRepository.getValorTotal(pedidoId);
+    }
+
+    @Override
     public Pedido findPedidoById(Long id) throws PedidoException{
         Pedido pedido = pedidoRepository.findPedidoById(id);
         if(pedido == null)
