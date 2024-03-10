@@ -60,6 +60,15 @@ public class PagamentoServiceImpl implements PagamentoService {
         return pagamentoDto;
     }
 
+    @Override
+    public void updatePaymentStatus(NotificacaoPagamentoDto notificacaoPagamentoDto) throws PagamentoNaoEncontradoException {
+      var pagamento =   pagamentoRepository.findByIdPedido(notificacaoPagamentoDto.getIdPedido());
+      if(!pagamento.isPresent())
+          throw new PagamentoNaoEncontradoException("Pagamento não encontrado");
+      pagamento.get().setStatus(notificacaoPagamentoDto.getStatus());
+      pagamentoRepository.save(pagamento.get());
+    }
+
     private Pagamentos montaPagamento(double valorTotal, long cardId, long pedidoId){
         Pagamentos pagamentos = new Pagamentos();
         pagamentos.setValor(valorTotal);

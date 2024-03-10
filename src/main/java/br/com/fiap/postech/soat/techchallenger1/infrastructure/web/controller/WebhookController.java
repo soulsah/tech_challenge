@@ -15,7 +15,7 @@ public class WebhookController {
 
     @PostMapping("/payment")
     public ResponseEntity<String> paymentNotification(@RequestBody NotificacaoPagamentoDto notification){
-        String paymentStatus = notification.getStatus();
+
 
 
         return new ResponseEntity<>("Notificação de pagamento recebida com sucesso", HttpStatus.OK);

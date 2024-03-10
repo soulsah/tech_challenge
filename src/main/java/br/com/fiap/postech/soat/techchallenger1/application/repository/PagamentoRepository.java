@@ -4,6 +4,7 @@ import br.com.fiap.postech.soat.techchallenger1.application.exception.PagamentoN
 import br.com.fiap.postech.soat.techchallenger1.application.exception.TipoProdutoNaoCadastradoException;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pagamentos;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.PagamentoRepositoryDB;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.NotificacaoPagamentoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +30,5 @@ public class PagamentoRepository {
 
         return pagamento.get();
     }
+
 }

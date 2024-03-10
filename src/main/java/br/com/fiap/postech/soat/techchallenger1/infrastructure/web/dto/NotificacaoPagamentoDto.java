@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NotificacaoPagamentoDto {
     private String status;
-    private String mensagem;
+    private long idPedido;
 }
