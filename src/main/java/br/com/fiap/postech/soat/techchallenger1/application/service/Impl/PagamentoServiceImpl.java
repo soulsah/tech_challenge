@@ -2,9 +2,11 @@ package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 
 import br.com.fiap.postech.soat.techchallenger1.application.exception.CardNotFoundException;
 import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
+import br.com.fiap.postech.soat.techchallenger1.application.repository.PagamentoRepository;
 import br.com.fiap.postech.soat.techchallenger1.application.service.CartaoService;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PagamentoService;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
+import br.com.fiap.postech.soat.techchallenger1.domain.model.Pagamentos;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.CheckoutDto;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.DadosPagamentoDto;
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PagamentoResponseDto;
@@ -27,8 +29,11 @@ public class PagamentoServiceImpl implements PagamentoService {
     @Autowired
     private PedidoService pedidoService;
 
+    @Autowired
+    private PagamentoRepository pagamentoRepository;
+
     @Override
-    public PagamentoResponseDto checkout(CheckoutDto checkoutDto) throws CardNotFoundException, PedidoException {
+    public PagamentoResponseDto checkout(CheckoutDto checkoutDto) throws CardNotFoundException {
 
         var cartao = cartaoService.getCardById(checkoutDto.getCardId());
         var valorTotal = pedidoService.getValorTotal(checkoutDto.getPedidoId());
@@ -38,8 +43,24 @@ public class PagamentoServiceImpl implements PagamentoService {
 
 
         RestTemplate rest = new RestTemplate();
-        var a =  rest.postForEntity(endpoint,pedido, PagamentoResponseDto.class);
-        return a.getBody();
+        var response =  rest.postForEntity(endpoint,pedido, PagamentoResponseDto.class);
+
+        var pagamentos = montaPagamento(valorTotal,checkoutDto.getCardId(),checkoutDto.getPedidoId());
+        if(response.getBody().status.equals("approved")){
+            pagamentos.setStatus("aprovado");
+        }
+        pagamentoRepository.save(pagamentos);
+        return response.getBody();
 
     }
+
+    private Pagamentos montaPagamento(double valorTotal, long cardId, long pedidoId){
+        Pagamentos pagamentos = new Pagamentos();
+        pagamentos.setValor(valorTotal);
+        pagamentos.setCardId(cardId);
+        pagamentos.setPedidoId(pedidoId);
+        pagamentos.setStatus("recusado");
+        return pagamentos;
+    }
+
 }

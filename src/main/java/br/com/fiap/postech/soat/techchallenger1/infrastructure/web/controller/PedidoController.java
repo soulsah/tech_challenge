@@ -60,11 +60,23 @@ public class PedidoController {
         return ResponseEntity.ok().body(new PedidoDto(pedidoService.findPedidoById(id)));
     }
 
+    @Operation(summary = "Insere um novo pedido",
+            description = "Insere um novo pedido")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Pedido inserido com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Dados de entrada incorretos")
+    })
     @PostMapping("/novo")
     public ResponseEntity<?> novoPedido(@RequestBody NovoPedidoDto novoPedidoDto){
         pedidoService.novoPedido(novoPedidoDto.getPedido(),novoPedidoDto.getItensPedido());
         return ResponseEntity.status(HttpStatus.CREATED).body("Pedido criado!");
     }
+    @Operation(summary = "Inicia o pedido",
+            description = "Inicia o pedido")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Inicia o pedido"),
+            @ApiResponse(responseCode = "400", description = "Dados de entrada incorretos")
+    })
 
     @GetMapping("/iniciar/{id}")
     public ResponseEntity<?> iniciarPedido(@PathVariable Long id){
@@ -79,6 +91,12 @@ public class PedidoController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
     }
+    @Operation(summary = "finaliza o pedido",
+            description = "finaliza o pedido")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "finaliza o pedido"),
+            @ApiResponse(responseCode = "400", description = "Dados de entrada incorretos")
+    })
 
     @GetMapping("/finalizar/{id}")
     public ResponseEntity<?> finalizarPedido(@PathVariable Long id){
@@ -94,6 +112,12 @@ public class PedidoController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido não encontrado");
     }
 
+    @Operation(summary = "entrega o pedido",
+            description = "entrega o pedido")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "entrega o pedido"),
+            @ApiResponse(responseCode = "400", description = "Dados de entrada incorretos")
+    })
     @GetMapping("/entregar/{id}")
     public ResponseEntity<?> entregarPedido(@PathVariable Long id){
         FilaPedido filaPedido = filaService.findFilaPedidoByPedidoId(id);

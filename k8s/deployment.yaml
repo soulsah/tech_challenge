@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: guilhermegomes1/tech_challenge-app
+          image: guilhermegomes1/tech_challenge-app:latest
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://db:5432/postgres

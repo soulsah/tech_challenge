@@ -1,4 +1,4 @@
-package br.com.fiap.postech.soat.techchallenger1.adapters.dto;
+package br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
