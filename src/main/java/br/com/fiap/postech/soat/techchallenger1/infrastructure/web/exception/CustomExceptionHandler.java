@@ -97,6 +97,16 @@ import java.util.Map;
         return new ResponseEntity<>(body, status);
     }
 
+    @ExceptionHandler(PagamentoNaoEncontradoException.class)
+    protected  ResponseEntity<Object> notFound(PagamentoNaoEncontradoException e, HttpServletRequest request){
+        HttpStatus status = HttpStatus.NOT_FOUND;
 
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", Instant.now());
+        body.put("status", status.value());
+        body.put("error", e.getMessage());
+        body.put("path", request.getRequestURI());
+        return new ResponseEntity<>(body, status);
+    }
 
 }

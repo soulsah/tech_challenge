@@ -1,16 +1,14 @@
 package br.com.fiap.postech.soat.techchallenger1.application.service.Impl;
 
 import br.com.fiap.postech.soat.techchallenger1.application.exception.CardNotFoundException;
+import br.com.fiap.postech.soat.techchallenger1.application.exception.PagamentoNaoEncontradoException;
 import br.com.fiap.postech.soat.techchallenger1.application.exception.PedidoException;
 import br.com.fiap.postech.soat.techchallenger1.application.repository.PagamentoRepository;
 import br.com.fiap.postech.soat.techchallenger1.application.service.CartaoService;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PagamentoService;
 import br.com.fiap.postech.soat.techchallenger1.application.service.PedidoService;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pagamentos;
-import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.CheckoutDto;
-import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.DadosPagamentoDto;
-import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PagamentoResponseDto;
-import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoPagamentoDto;
+import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -52,6 +50,14 @@ public class PagamentoServiceImpl implements PagamentoService {
         pagamentoRepository.save(pagamentos);
         return response.getBody();
 
+    }
+
+    @Override
+    public PagamentosDto getPagamentoById(Long id) throws PagamentoNaoEncontradoException {
+        var pagamento = pagamentoRepository.getPagamentoById(id);
+
+        PagamentosDto pagamentoDto = new PagamentosDto(pagamento);
+        return pagamentoDto;
     }
 
     private Pagamentos montaPagamento(double valorTotal, long cardId, long pedidoId){
