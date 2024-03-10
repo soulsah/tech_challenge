@@ -21,7 +21,7 @@ public class WebhookController {
 
     @PostMapping("/payment")
     public ResponseEntity<String> paymentNotification(@RequestBody NotificacaoPagamentoDto notification) throws PagamentoNaoEncontradoException {
-
+        System.out.println("Recebido : "+notification.getStatus()+","+notification.getIdPedido());
         pagamentoService.updatePaymentStatus(notification);
 
         return new ResponseEntity<>("Notificação de pagamento recebida com sucesso", HttpStatus.OK);

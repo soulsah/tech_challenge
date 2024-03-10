@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface PagamentoRepositoryDB extends JpaRepository<Pagamentos, Long> {
 
+    @Query(value="select * from tb_pagamento tp where pedido_id = :pedidoId",nativeQuery = true)
     Optional<Pagamentos> findByPedidoId(long pedidoId);
 }
