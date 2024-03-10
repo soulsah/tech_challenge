@@ -31,4 +31,7 @@ public class PagamentoRepository {
         return pagamento.get();
     }
 
+    public Optional<Pagamentos> findByIdPedido(long idPedido) {
+       return pagamentoRepositoryDB.findByPedidoId(idPedido);
+    }
 }
