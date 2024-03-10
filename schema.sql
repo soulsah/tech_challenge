@@ -70,4 +70,13 @@ CREATE TABLE tb_cartao
     cliente_id      int          NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES tb_cliente (ID)
 );
+CREATE TABLE tb_pagamento (
+                              id SERIAL PRIMARY KEY AUTO_INCREMENT,
+                              valor DOUBLE PRECISION NOT NULL,
+                              status VARCHAR(255),
+                              card_id int,
+                              pedidoId int,
+                              FOREIGN KEY (card_id) REFERENCES tb_cartao(id),
+                              FOREIGN KEY (pedidoId) REFERENCES tb_pedido(id)
+);
 
