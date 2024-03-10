@@ -14,7 +14,7 @@ async def return_pagamento():
     if tamanho_lista > 0:
         for pagamento in pagamentos:
             id_pedido = pagamento
-            url = 'http://localhost:8080/webhook/payment'
+            url = 'http://app:8080/webhook/payment'
             payload = {"status": "APROVADO", "id_pedido": id_pedido}
             print(f"Chamando webhook para o pedido {id_pedido}")
             response = requests.post(url, json=payload)
@@ -41,3 +41,9 @@ class Pagamento(BaseModel):
 def read_item(pagamento: Pagamento):
     pagamentos.append(pagamento.id_pedido)
     return {f"Processando pagamento para o id_pedido {pagamento.id_pedido}"}
+
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=9091)
+    

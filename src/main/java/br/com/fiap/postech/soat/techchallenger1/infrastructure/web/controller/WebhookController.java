@@ -28,6 +28,6 @@ public class WebhookController {
         } else {
             System.out.println("Pagamento em estado desconhecido");
         }
-        return new ResponseEntity<>("Notificação de pagamento recebida com sucesso", HttpStatus.OK);
+        return new ResponseEntity<>("Notificacao de pagamento recebida com sucesso", HttpStatus.OK);
     }
 }
