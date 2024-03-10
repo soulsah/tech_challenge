@@ -2,6 +2,11 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: app-hpa
+  annotations:
+    metric-config.pods.load-per-min.json-path/json-key: "$.measurements[:0].value"
+    metric-config.pods.load-per-min.json-path/path: /actuator/metrics/system.load.average.1m
+    metric-config.pods.load-per-min.json-path/port: "8080"
+    metric-config.pods.load-per-min.json-path/scheme: "http"
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -27,6 +32,11 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
  name: db-hpa
+ annotations:
+    metric-config.pods.load-per-min.json-path/json-key: "$.measurements[:0].value"
+    metric-config.pods.load-per-min.json-path/path: /actuator/metrics/system.load.average.1m
+    metric-config.pods.load-per-min.json-path/port: "8080"
+    metric-config.pods.load-per-min.json-path/scheme: "http"
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
