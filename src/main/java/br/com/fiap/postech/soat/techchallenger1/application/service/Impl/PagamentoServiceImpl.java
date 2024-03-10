@@ -43,10 +43,9 @@ public class PagamentoServiceImpl implements PagamentoService {
         RestTemplate rest = new RestTemplate();
         var response =  rest.postForEntity(endpoint,pedido, PagamentoResponseDto.class);
 
-        var pagamentos = montaPagamento(valorTotal,checkoutDto.getCardId(),checkoutDto.getPedidoId());
-        if(response.getBody().status.equals("approved")){
-            pagamentos.setStatus("aprovado");
-        }
+        var pagamentos = montaPagamento(valorTotal,checkoutDto.getCardId(),checkoutDto.getPedidoId(),response.getBody().getStatus());
+
+        System.out.println("Status do pagamento response: "+response.getBody().getStatus());
         pagamentoRepository.save(pagamentos);
         return response.getBody();
 
@@ -69,12 +68,12 @@ public class PagamentoServiceImpl implements PagamentoService {
       pagamentoRepository.save(pagamento.get());
     }
 
-    private Pagamentos montaPagamento(double valorTotal, long cardId, long pedidoId){
+    private Pagamentos montaPagamento(double valorTotal, long cardId, long pedidoId,String status){
         Pagamentos pagamentos = new Pagamentos();
         pagamentos.setValor(valorTotal);
         pagamentos.setCardId(cardId);
         pagamentos.setPedidoId(pedidoId);
-        pagamentos.setStatus("recusado");
+        pagamentos.setStatus(status);
         return pagamentos;
     }
 
