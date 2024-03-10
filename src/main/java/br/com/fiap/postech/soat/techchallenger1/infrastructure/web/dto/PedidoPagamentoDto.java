@@ -25,7 +25,7 @@ public class PedidoPagamentoDto {
         dadosPagamento.setTipoPagamento("Crédito");
         dadosPagamento.setNumCartao(cartao.getCardHolderName());
         dadosPagamento.setCvv(cartao.getCvv());
-        dadosPagamento.setValidade("01/"+cartao.getExpirationDate());
+        dadosPagamento.setValidade(cartao.getExpirationDate());
 
         this.setDadosPagamento(dadosPagamento);
     }
