@@ -36,6 +36,12 @@ public class PagamentoController {
         return ResponseEntity.ok().body(checkout);
     }
 
+    @Operation(summary = "Verificar o status do pagamento",
+            description = "Verificar o status do pagamento")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Pagamento encontrado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Dados de entrada incorretos")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<PagamentosDto>getPagamento(@PathVariable Long id) throws PagamentoNaoEncontradoException {
        return ResponseEntity.ok().body(pagamentoService.getPagamentoById(id));
