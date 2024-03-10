@@ -51,6 +51,15 @@ Para criação dos container, compilar e rodar a applicação é necessário ape
 docker-compose up -d
 
 
+### Kubernetes
+
+Para utilizar a estrutura de Kubernetes para a aplicação e o banco de dados, consideramos a implementação de um sistema de autoescalabilidade horizontal baseado no uso de CPU e memória. Inicialmente, a aplicação é configurada com 4 PODs, distribuídos igualmente entre a aplicação e o banco de dados, totalizando 2 PODs para cada componente.
+
+Ao monitorar o uso de CPU e memória, caso qualquer POD atinja 70% de sua capacidade máxima de CPU ou memória, um novo POD é adicionado automaticamente para garantir a disponibilidade e o desempenho contínuos do sistema. Essa estratégia de autoescalabilidade ajuda a otimizar o uso dos recursos, garantindo que a aplicação possa lidar com picos de demanda sem comprometer a performance ou a disponibilidade.
+
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/k8s.png)
+
+
 
 ### Documentação das APIS 
 Adicionamos a geração automática da documentação através da biblioteca SpringDoc OpenAPI, a documentação pode ser acessada enquanto a aplicação estiver rodando em http://localhost:8080/swagger-ui/index.html#/:
@@ -68,47 +77,37 @@ A Collection para realização das requests pode ser encontrada [postman](https:
 
 # Estrutura do Projeto - Tech Challenge
 
-## Adapters (ou Port Adapters):
+# application
 
-### controller
+## exception
+- **Descrição:** Contém exceções específicas da aplicação.
 
-- **Descrição:** Camada de interface do usuário . Responsável por receber e processar as requisições da interface.
-
-### dto
-
-- **Descrição:** Contém objetos de transferência de dados .
-
-### exception
-
-- **Descrição:** Contém classes relacionadas ao tratamento de exceções.
-
-### repository
-
+## repository
 - **Descrição:** Contém componentes relacionados ao armazenamento de dados.
 
-## Application:
-
-### clienteService
-
+## service
 - **Descrição:** Interface que fornece serviços.
 
 ### impl
+- **Descrição:** Implementação da interface service contendo as regras de negócio.
 
-- **Descrição:** Contém a implementação concreta dos serviços. Esta camada utiliza a camada de domínio para realizar operações de negócios e chama a interface repository para acessar dados.
+# domain
 
-## Domain:
-
-### exception
-
-- **Descrição:** Contém exceções específicas do domínio.
-
-### model
-
+## model
 - **Descrição:** Contém as entidades de domínio.
 
-### repository
+# infrastructure
 
-- **Descrição:** Contém interfaces relacionadas ao acesso a dados. Responsável por fazer a ponte com a camada de adapters.
+## persistence
+- **Descrição:** Contém componentes relacionados ao armazenamento de dados.
 
-### Postman
-- Disponibilizamos um arquivo JSON com todas as requisições Postman para testar a API, disponível no seguinte link:
+## web
+
+### controller
+- **Descrição:** Camada de interface do usuário . Responsável por receber e processar as requisições da interface.
+
+### dto
+- **Descrição:** Contém objetos de transferência de dados .
+
+### exception
+- **Descrição:** Contém exceções específicas do domínio.
