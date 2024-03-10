@@ -111,3 +111,8 @@ A Collection para realização das requests pode ser encontrada [postman](https:
 
 ### exception
 - **Descrição:** Contém exceções específicas do domínio.
+
+
+### Desenho da Arquitetura:
+
+![arch](https://github.com/soulsah/tech_challenge/assets/60759001/2e738732-4024-4ed8-a48b-86d9e33d5600)
