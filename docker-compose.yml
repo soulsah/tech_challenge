@@ -21,9 +21,16 @@ services:
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-
     ports:
       - "8080:8080"
+    networks:
+      - my-networks
+
+  wehbook:
+    build:
+      dockerfile: Dockerfile.Webhook
+    ports:
+       - "8081:8081"
     networks:
       - my-networks
 

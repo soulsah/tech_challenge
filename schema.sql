@@ -71,7 +71,7 @@ CREATE TABLE tb_cartao
     FOREIGN KEY (cliente_id) REFERENCES tb_cliente (ID)
 );
 CREATE TABLE tb_pagamento (
-                              id SERIAL PRIMARY KEY AUTO_INCREMENT,
+                              id SERIAL PRIMARY KEY,
                               valor DOUBLE PRECISION NOT NULL,
                               status VARCHAR(255),
                               card_id int,
@@ -79,4 +79,3 @@ CREATE TABLE tb_pagamento (
                               FOREIGN KEY (card_id) REFERENCES tb_cartao(id),
                               FOREIGN KEY (pedidoId) REFERENCES tb_pedido(id)
 );
-
