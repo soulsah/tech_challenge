@@ -17,17 +17,7 @@ public class WebhookController {
     public ResponseEntity<String> paymentNotification(@RequestBody NotificacaoPagamentoDto notification){
         String paymentStatus = notification.getStatus();
 
-        /*
-                To do:
-                Lógica do webhook
-        */
-        if("approved".equalsIgnoreCase(paymentStatus)){
-            System.out.println("Pagamento aprovado");
-        } else if ("recusado".equalsIgnoreCase(paymentStatus)){
-            System.out.println("Pagamento recusado");
-        } else {
-            System.out.println("Pagamento em estado desconhecido");
-        }
+
         return new ResponseEntity<>("Notificação de pagamento recebida com sucesso", HttpStatus.OK);
     }
 }

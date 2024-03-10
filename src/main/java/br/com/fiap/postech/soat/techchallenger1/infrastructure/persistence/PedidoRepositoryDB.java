@@ -14,9 +14,10 @@ import java.util.List;
 public interface PedidoRepositoryDB extends JpaRepository<Pedido,Long> {
 
 
-    @Query(value = "SELECT SUM(tip.preco) FROM tb_produto tip LEFT JOIN tb_itens_pedido tp ON tip.id = tp.produto WHERE tp.pedido_id = :pedidoId GROUP BY tp.pedido_id", nativeQuery = true)
+    @Query(value = "SELECT SUM(tip.preco * tp.quantidade)) FROM tb_produto tip LEFT JOIN tb_itens_pedido tp ON tip.id = tp.produto WHERE tp.pedido_id = :pedidoId GROUP BY tp.pedido_id", nativeQuery = true)
     double getValorTotal(@Param("pedidoId") Long pedidoId);
 
+    @Query(value="SELECT * FROM tb_pedido WHERE status <> 3 ORDER BY CASE status WHEN 2 THEN 1 WHEN 1 THEN 2 WHEN 0 THEN 3 END, id",nativeQuery = true)
     List<Pedido> findAll();
 
     List<Pedido> findPedidosByClienteId(Long id);
