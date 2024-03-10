@@ -59,6 +59,12 @@ Ao monitorar o uso de CPU e memória, caso qualquer POD atinja 70% de sua capaci
 
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/k8s.png)
 
+Comandos necessários para subir o kubernetes local:
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl apply -f https://raw.githubusercontent.com/pythianarora/total-practice/master/sample-kubernetes-code/metrics-server.yaml
+kubectl create -f k8s\deployment.yaml
+kubectl create -f k8s\service.yaml
+kubectl create -f k8s\hpa.yaml
 
 
 ### Documentação das APIS 
