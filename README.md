@@ -61,9 +61,13 @@ Ao monitorar o uso de CPU e memória, caso qualquer POD atinja 70% de sua capaci
 
 Comandos necessários para subir o kubernetes local:
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
 kubectl apply -f https://raw.githubusercontent.com/pythianarora/total-practice/master/sample-kubernetes-code/metrics-server.yaml
+
 kubectl create -f k8s\deployment.yaml
+
 kubectl create -f k8s\service.yaml
+
 kubectl create -f k8s\hpa.yaml
 
 
@@ -122,3 +126,27 @@ A Collection para realização das requests pode ser encontrada [postman](https:
 ### Desenho da Arquitetura:
 
 ![arch](https://github.com/soulsah/tech_challenge/assets/60759001/2e738732-4024-4ed8-a48b-86d9e33d5600)
+
+## Requisitos do Negócio
+
+### Gestão de Pedidos:
+
+- O sistema deve permitir que os clientes façam pedidos através de uma interface de autoatendimento.
+- Deve ser possível selecionar itens do menu, personalizar pedidos e adicionar itens extras conforme necessário.
+- Os pedidos devem ser preparados exatamente conforme especificado pelos clientes, sem erros ou omissões.
+
+### Eficiência Operacional:
+
+- O sistema deve garantir uma comunicação eficiente entre os dispositivos de autoatendimento e a cozinha.
+
+### Integração com Pagamento:
+
+- O sistema deve integrar-se a um sistema de pagamento para facilitar o pagamento dos pedidos pelos clientes.
+
+### Escalabilidade:
+
+- O sistema deve ser capaz de lidar com um grande volume de pedidos simultâneos, especialmente durante períodos de pico de atividade.
+
+### Segurança dos Dados:
+
+- Todas as informações dos clientes, como detalhes do pedido e informações de pagamento, devem ser armazenadas e transmitidas de forma segura.

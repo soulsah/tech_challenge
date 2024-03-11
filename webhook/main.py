@@ -40,7 +40,7 @@ class Pagamento(BaseModel):
 @app.post("/pagamento/processar")
 def read_item(pagamento: Pagamento):
     pagamentos.append(pagamento.id_pedido)
-    return {f"Processando pagamento para o id_pedido {pagamento.id_pedido}"}
+    return {"status": "Processando", "pedidoId": pagamento.id_pedido}
 
 
 if __name__ == '__main__':
