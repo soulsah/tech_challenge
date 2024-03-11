@@ -79,7 +79,7 @@ Adicionamos a geração automática da documentação através da biblioteca Spr
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/tipo_produto.png)
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/pedidos.png)
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/pagamento.png)
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/cliente.png)
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/clientes.png)
 ![image](https://github.com/andzedd/tech_challenge/blob/master/images/cartao.png)
 
 
