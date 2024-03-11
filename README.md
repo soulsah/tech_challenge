@@ -87,7 +87,7 @@ Adicionamos a geração automática da documentação através da biblioteca Spr
  
 ## Requests Collection
 
-A Collection para realização das requests pode ser encontrada [postman](https://github.com/andzedd/tech_challenge/blob/master/techChallengeCollection%20-%20postman) [insominia](https://github.com/andzedd/tech_challenge/blob/master/techChallengerCollection%20-insominia)
+A Collection para realização das requests pode ser encontrada [Collection](https://github.com/andzedd/tech_challenge/blob/master/techChallengerCollection%20-insominia)
 
 
 # Estrutura do Projeto - Tech Challenge
