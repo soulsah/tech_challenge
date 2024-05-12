@@ -15,6 +15,7 @@ public class CartaoRepository {
     @Autowired
     CartaoRepositoryDB cartaoRepositoryDB;
 
+    
 
     public List<CartaoDto> findAll() {
         var listaCartoes = cartaoRepositoryDB.findAll();
