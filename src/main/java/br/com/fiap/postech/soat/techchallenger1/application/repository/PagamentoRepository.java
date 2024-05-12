@@ -24,11 +24,11 @@ public class PagamentoRepository {
     public Pagamentos getPagamentoById(Long id) throws PagamentoNaoEncontradoException {
         var pagamento = pagamentoRepositoryDB.findById(id);
 
-        if(pagamento == null)
+        if(!pagamento.isPresent())
             throw new PagamentoNaoEncontradoException("pagamento Não existe");
 
 
-        return pagamento;
+        return pagamento.get();
     }
 
     public Optional<Pagamentos> findByIdPedido(long idPedido) {

@@ -13,7 +13,6 @@ import lombok.*;
 @AllArgsConstructor
 public class ClienteDto{
 
-
     @JsonProperty
     @NotNull(message = "O cpf é um campo de preenchimento obrigatório")
     @NotEmpty

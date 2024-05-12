@@ -4,12 +4,10 @@ import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.FilaP
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.persistence.PedidoRepositoryDB;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.FilaPedido;
 import br.com.fiap.postech.soat.techchallenger1.domain.model.Pedido;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@AllArgsConstructor
 public class FilaRepository {
     @Autowired
     FilaPedidoRepositoryDB filaPedidoRepository;

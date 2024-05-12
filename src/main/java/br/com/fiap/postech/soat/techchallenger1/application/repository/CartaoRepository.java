@@ -23,11 +23,11 @@ public class CartaoRepository {
 
     public CartaoDto findById(Long id) throws CardNotFoundException {
         var cartao = cartaoRepositoryDB.findById(id);
-        if (cartao == null) {
+        if (!cartao.isPresent()) {
             throw new CardNotFoundException("Card not found");
         }
 
-        return new CartaoDto(cartao);
+        return new CartaoDto(cartao.get());
     }
 
     public CartaoDto save(CartaoDto cardDTO) {

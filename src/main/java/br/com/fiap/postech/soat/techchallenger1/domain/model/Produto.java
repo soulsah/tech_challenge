@@ -1,9 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ProdutoDto;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -14,18 +11,22 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamoDBTable(tableName = "tb_produto")
+@Entity
+@Table(name = "tb_produto")
 public class Produto {
-    @DynamoDBHashKey
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @DynamoDBAttribute
+    @ManyToOne
+    @JoinColumn(name = "tipo", nullable = false)
     private TipoProduto tipo;
 
-    @DynamoDBAttribute
+    @Column(name = "descricao", nullable = false)
     private String descricao;
 
-    @DynamoDBAttribute
+    @Column(name = "preco", nullable = false)
     private BigDecimal preco;
 
     public Produto(ProdutoDto produtoDto){

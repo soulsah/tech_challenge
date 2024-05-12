@@ -1,9 +1,6 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.PedidoDto;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -12,15 +9,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamoDBTable(tableName = "tb_pedido")
+@Entity
+@Table(name = "tb_pedido")
 public class Pedido {
-    @DynamoDBHashKey
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @DynamoDBAttribute
+    @JoinColumn(name = "Cliente_ID")
     private Long clienteId;
 
-    @DynamoDBAttribute
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "status")
     private StatusPedido status;
 
     public Pedido(PedidoDto pedidoDto){
