@@ -34,7 +34,7 @@ Relacionamento entre as entidades:
 
 
 # Justificação da escolha do banco de dados.
-Nas etapas anteriores utilizamos como base de dados o Postgres, devido ao conhecimento prévio do grupo sobre o sistema, porém, nessa fase decidimos pela alteração para a base DynamoDB da AWS, fizemos essa escolha principalmente pela sinergia que o banco possuí com outras tecnologias da AWS que estamos utilizando, como Lambda e o Cognito.
+Nas etapas anteriores utilizamos como base de dados o Postgres, devido ao conhecimento prévio do grupo sobre o sistema, porém, nessa fase decidimos pela alteração para a base DynamoDB da AWS, fizemos essa escolha principalmente pela sinergia que o banco possuí com outras tecnologias da AWS que estamos utilizando, como o Lambda e o EC2.
 
 DynamoDB oferece desempenho escalável e consistente, independentemente do tamanho do conjunto de dados ou da carga de trabalho, ideal para o processamento dos pedidos no sistema, assim como ele pode gerenciar automaticamente a distribuição de dados e as requisições para otimizar o desempenho, uma vez que não precisaremos nos preocupar com provisionamento de recursos ou ajustes de capacidade, reduzimos assim a sobrecarga operacional eliminando a necessidade de ajustes manuais de configuração como no Postgres.
 
