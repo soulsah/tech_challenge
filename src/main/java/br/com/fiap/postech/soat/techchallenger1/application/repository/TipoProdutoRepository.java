@@ -23,11 +23,11 @@ public class TipoProdutoRepository {
     public TipoProduto getTipoProdutoById(Long id) throws TipoProdutoNaoCadastradoException {
        var tipoProduto = tipoProdutoRepositoryDb.findById(id);
 
-        if(!tipoProduto.isPresent())
+        if(tipoProduto == null)
             throw new TipoProdutoNaoCadastradoException("Tipo Produto Não existe");
 
 
-       return tipoProduto.get();
+       return tipoProduto;
     }
 
     public TipoProduto createTipoProduto(TipoProduto tipoProdutoDto) {

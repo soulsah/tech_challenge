@@ -1,6 +1,9 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,28 +11,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_pagamento")
+@DynamoDBTable(tableName = "tb_pagamento")
 public class Pagamentos {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @DynamoDBHashKey
     private long id;
 
-    @Column(name = "valor")
+    @DynamoDBAttribute
     public double valor;
 
-    @Column(name = "status")
+    @DynamoDBAttribute
     private String status;
 
-    @JoinColumn(name = "card_id")
+    @DynamoDBAttribute
     private long cardId;
 
-    @JoinColumn(name = "pedidoId")
+    @DynamoDBHashKey
     private long pedidoId;
 
 
