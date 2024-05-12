@@ -2,6 +2,9 @@ package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.ItemPedidoDto;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,19 +13,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "tb_itens_pedido")
+@DynamoDBTable(tableName = "tb_itens_pedido")
 @IdClass(ItemPedidoId.class)
 public class ItemPedido {
-    @Id
-    @JoinColumn(name = "pedido_id", nullable = false)
+    @DynamoDBHashKey
     private Long pedidoId;
 
-    @Id
-    @JoinColumn(name = "produto", nullable = false)
+    @DynamoDBHashKey
     private Long produto;
 
-    @Column(name = "quantidade", nullable = false)
+    @DynamoDBAttribute
     private int quantidade;
 
     public ItemPedido(ItemPedidoDto itemPedidoDto){

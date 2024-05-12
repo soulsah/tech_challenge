@@ -1,33 +1,39 @@
 package br.com.fiap.postech.soat.techchallenger1.domain.model;
 
 import br.com.fiap.postech.soat.techchallenger1.infrastructure.web.dto.CartaoDto;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDB;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_cartao")
+@DynamoDBTable(tableName = "tb_cartao")
 public class Cartao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @DynamoDBHashKey
     private long id;
-    @Column(name = "numero_cartao")
+
+    @DynamoDBAttribute
     private String cardNumber;
-    @Column(name = "detentor_cartao")
+
+    @DynamoDBAttribute
     private String cardHolderName;
-    @Column(name = "data_expiracao")
+
+    @DynamoDBAttribute
     private String expirationDate;
-    @Column(name = "cvv")
+
+    @DynamoDBAttribute
     private String cvv;
-    @JoinColumn(name = "user_id")
+
+    @DynamoDBAttribute
     private int userId;
 
 
