@@ -14,10 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DynamoDbConfiguration {
 
-    @Value("${AWS_ACCESS_KEY_ID}")
+
+    @Value("$AWS_ACCESS_KEY_ID")
     private String acesso;
 
-    @Value("${AWS_SECRET_ACCESS_KEY}")
+    @Value("$AWS_SECRET_ACCESS_KEY")
     private String senha;
 
     @Bean
@@ -45,6 +46,7 @@ public class DynamoDbConfiguration {
                 new BasicAWSCredentials(
                         acesso,
                         senha
+
                 )
         );
     }
