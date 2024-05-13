@@ -18,19 +18,20 @@ Tecnologias e ferramentas utilizadas
 * Outras ferramentas:
   * Docker
 
-    
+## Aplicacao
+Funcionamento da aplicacao
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/aplicacao.png)
+
+
+## Deploy
+desenho do deploy CI/CD
+
+![image](https://github.com/andzedd/tech_challenge/blob/master/images/deployCi.png)
  
 
 ## Configurações da solução
 
-### Banco de Dados
-Configuração de produção utilizando o PostgreSQL:
-https://github.com/andzedd/tech_challenge/blob/master/src/main/resources/application.properties
 
-Relacionamento entre as entidades:
-
-
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/tabelas.png)
 
 
 # Justificação da escolha do banco de dados.
@@ -54,25 +55,6 @@ Para criação dos container, compilar e rodar a applicação é necessário ape
 
 docker-compose up -d
 
-
-### Kubernetes
-
-Para utilizar a estrutura de Kubernetes para a aplicação e o banco de dados, consideramos a implementação de um sistema de autoescalabilidade horizontal baseado no uso de CPU e memória. Inicialmente, a aplicação é configurada com 2 PODs, distribuídos igualmente entre a aplicação e o banco de dados, totalizando 1 POD para cada componente.
-
-Ao monitorar o uso de CPU e memória, caso qualquer POD atinja 70% de sua capacidade máxima de CPU ou memória, um novo POD é adicionado automaticamente para garantir a disponibilidade e o desempenho contínuos do sistema. Essa estratégia de autoescalabilidade ajuda a otimizar o uso dos recursos, garantindo que a aplicação possa lidar com picos de demanda sem comprometer a performance ou a disponibilidade.
-
-![image](https://github.com/andzedd/tech_challenge/blob/master/images/k8s.png)
-
-Comandos necessários para subir o kubernetes local:
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-
-kubectl apply -f https://raw.githubusercontent.com/pythianarora/total-practice/master/sample-kubernetes-code/metrics-server.yaml
-
-kubectl create -f k8s\deployment.yaml
-
-kubectl create -f k8s\service.yaml
-
-kubectl create -f k8s\hpa.yaml
 
 
 ### Documentação das APIS 
